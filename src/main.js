@@ -10,6 +10,6 @@ const app = new SPA({
     defaultRoute: PageNotFound,
 })
 
-app.add('/login', SignIn)
+app.add('/', SignIn)
 
 app.handleRouteChanges();

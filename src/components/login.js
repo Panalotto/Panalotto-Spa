@@ -4,28 +4,25 @@ import '../styles/loginPage.css';
 
 export default function LogIn(root) {
     root.innerHTML = `
-    <div id="logo"></div>
+    <div id="header-container">
+        <h1 id="headtext">PANALOTTO</h1>
+    </div>
     
-      <div id="loginPage">
-      
+    <div id="loginPage">
+        <form enctype="multipart/form-data" id="signin">
+        <h2 id="logintext">Login</h2>
+            <label for="username"><b>Username</b></label>
+            <input type="text" name="username" placeholder="Enter Username" required>
 
-      
-        <div class="container">
-            
-            <form enctype="multipart/form-data" id="signin">
-                <label for="username"><b>Username</b></label>
-                <input type="text"  name="username" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <span id="errorMessage"></span>
 
-                <label for="password"><b>Password</b></label>
-                <input type="password" name="password" required>
-                <span id="errorMessage" style="display: none; color: red;"></span>
-
-                <a href="/identify" >Forgot password?</a>
-                <button type="submit">Login</button>
-            </form>
             <span class="crtAcct">Don't have an account? <a href="/signup">Sign Up</a></span>
-        </div>
-      </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
     `;
 
     const errorMessage = document.getElementById('errorMessage');
