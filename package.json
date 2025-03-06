@@ -2,11 +2,11 @@
   "name": "panalotto-spa",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "public/main.js",
   "type": "module",
   "scripts": {
     "start": "vite preview",
-    "build": "parcel build src/index.html",
+    "build": "parcel build public/index.html",
     "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
