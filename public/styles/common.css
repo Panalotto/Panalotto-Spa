@@ -36,10 +36,6 @@ body.dark-mode {
 
 
 
-#container.dark-mode {
-    background-color: #1e1e1e;
-}
-
 #container.dark-mode #main,
 #container.dark-mode .home-container {
     background-color: #1e1e1e; /* Ensure all nested elements match the dark theme */

@@ -3,43 +3,32 @@
 
 export default function CreateAccount(root){
     root.innerHTML = `
-    <div id="createAccountPage">
-      <div class="container">
-        <form enctype="multipart/form-data" id="signup">
-          <h2>Create Account</h2>
-          <div class="input-group">
-            <label for="username"><b>Username</b></label>
-            <input type="text"  name="username" required>
-            <span id="usernameError" style="display: none; color: red;"></span>
-          </div>
-          <div class="input-group">
-            <label for="email"><b>Email</b></label>
-            <input type="email" name="email" required>
-            <span id="emailError" style="display: none; color: red;"></span>
-          </div>
-          <div class="input-group">
-            <label for="password"><b>Password</b></label>
-            <input type="password" name="password" required>
-          </div>
-          
-          <button type="submit">Sign Up</button>
-          <span class="crtAcct">Don't have an account? <a href="/signin">Sign In</a></span>
-          <div id="errorMessage" style="display: none; color: red;">
-            Failed to create account
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="message-popup-overlay" id="popupOverlay" style="display: none;">
-      <div class="popup" id="popup">
-          <span class="close" id="closePopup">&times;</span>
-          <div class="popup-content">
-            <p>Thanks for creating an account!</p>
-            <h3>Welcome to ConeXus</h3>
-            <button data-path="/signin">Continue</button>
-          </div>
-      </div>
-    </div>        
+    <img id="cards" src="./icons/cards.png">
+    <div class="container">
+        <div class="register-card">
+            <h1>Register</h1>
+            <form class="form-register">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm password</label>
+                    <input type="password" id="confirm-password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="signup-btn">Signup</button>
+                <button data-path=/signIn id="back-btn">Back</button>
+            </form>
+        </div>
+    </div>   
     `;
 
     const signUp = document.getElementById('signup');
