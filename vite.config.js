@@ -3,5 +3,5 @@ export default {
     build: {
       outDir: '../dist',
     },
-    publicDir: '../public'
-}
+    publicDir: 'D:/MultiInstances/public' // Gumamit ng absolute path
+};

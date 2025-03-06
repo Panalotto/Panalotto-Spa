@@ -1,6 +1,5 @@
-import axios from 'axios';
-import '../styles/loginPage.css';
-
+// import axios from 'axios';
+// import '../styles/loginPage.css';
 
 export default function LogIn(root) {
     root.innerHTML = `
@@ -27,40 +26,46 @@ export default function LogIn(root) {
 
     `;
 
+    // ⏳ Countdown Timer Update (WebSocket)
+    const timeElement = document.getElementById('time');
+    const socket = new WebSocket('ws://localhost:9000'); // Connect WebSocket
+
+    socket.onmessage = (event) => {
+        timeElement.innerText = `Time left: ${event.data} seconds`;
+    };
+
+    socket.onerror = (error) => {
+        console.error("WebSocket Error:", error);
+    };
+
+    // 🔥 Login Form Handling
     const errorMessage = document.getElementById('errorMessage');
     const signIn = document.getElementById('signin');
-    signIn.addEventListener('submit', (e) => {
-        e.preventDefault();
 
+    signIn.addEventListener('submit', async (e) => {
+        e.preventDefault();
         errorMessage.style.display = 'none';
 
         const formData = new FormData(e.target);
         const payload = Object.fromEntries(formData);
 
-        axios.post(`http://localhost:3000/v1/account/login`, payload, {
-            headers: {
-                apikey: `panalotto`,
-            }
-        })
-        .then((response) => {
-            console.log(response);
-            if (response.data.success === true) {
+        try {
+            const response = await axios.post(`http://localhost:3000/v1/account/login`, payload, {
+                headers: { apikey: `panalotto` }
+            });
+
+            if (response.data.success) {
                 localStorage.setItem('token', response.data.data.token);
                 history.pushState({}, '', '/');
                 window.dispatchEvent(new Event('popstate'));
-            }
-            const message = response.data.message;
-
-            if (message === 'Invalid username or password') {
-                errorMessage.textContent = message;
-                errorMessage.style.display = 'block';
             } else {
-                errorMessage.textContent = message;
+                errorMessage.textContent = response.data.message;
                 errorMessage.style.display = 'block';
             }
-        })
-        .catch((error) => {
+        } catch (error) {
             console.error(error);
-        });
+            errorMessage.textContent = "Server error. Please try again.";
+            errorMessage.style.display = 'block';
+        }
     });
 }

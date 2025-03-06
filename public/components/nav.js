@@ -1,4 +1,4 @@
-import '../styles/navBar.css';
+// import '../styles/navBar.css';
 
 export default function Navigation(root) {
     root.innerHTML = `

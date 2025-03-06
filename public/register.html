@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANALOTTO - Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(180deg, #0a0a2a 0%, #3a3ad7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .register-card {
+            background-color: #0a0a2a;
+            border-radius: 25px;
+            border: 2px solid #9932CC;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(153, 50, 204, 0.3);
+        }
+        
+        .register-card h1 {
+            color: #FF00FF;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: white;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .form-group input:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(153, 50, 204, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(153, 50, 204, 0.7);
+            transform: translateY(-3px);
+        }
+        
+        .signup-btn {
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 50px;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .signup-btn:hover {
+            background-color: #FF00FF;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        .lottery-section {
+            text-align: center;
+        }
+        
+        .lottery-section h2 {
+            color: #FFD700;
+            font-size: 36px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .lottery-tickets {
+            position: relative;
+            height: 220px;
+            width: 300px;
+        }
+        
+        .ticket {
+            width: 140px;
+            height: 180px;
+            background-color: #2563EB;
+            border-radius: 10px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .ticket:nth-child(1) {
+            left: 0;
+            top: 20px;
+            transform: rotate(-10deg);
+        }
+        
+        .ticket:nth-child(2) {
+            left: 80px;
+            z-index: 2;
+        }
+        
+        .ticket:nth-child(3) {
+            right: 0;
+            top: 20px;
+            background-color: #7C3AED;
+            transform: rotate(10deg);
+        }
+        
+        .ticket-number {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .dots-container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            padding: 0 10px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        .coins {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+        
+        .coin-stack {
+            width: 80px;
+            height: 80px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border: 3px solid #B8860B;
+        }
+        
+        .dollar-sign {
+            color: black;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="register-card">
+            <h1>Register</h1>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm password</label>
+                    <input type="password" id="confirm-password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="signup-btn">Signup</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
