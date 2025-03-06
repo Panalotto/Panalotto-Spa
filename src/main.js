@@ -12,4 +12,5 @@ const app = new SPA({
 
 app.add('/', SignIn)
 
+
 app.handleRouteChanges();

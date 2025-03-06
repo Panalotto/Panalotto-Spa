@@ -7,6 +7,8 @@ export default function LogIn(root) {
     <div id="header-container">
         <h1 id="headtext">PANALOTTO</h1>
     </div>
+
+    <img id="icon" src="./icons/icon.png">
     
     <div id="loginPage">
         <form enctype="multipart/form-data" id="signin">
@@ -18,8 +20,8 @@ export default function LogIn(root) {
             <input type="password" name="password" placeholder="Enter Password" required>
             <span id="errorMessage"></span>
 
-            <span class="crtAcct">Don't have an account? <a href="/signup">Sign Up</a></span>
             <button type="submit">Login</button>
+            <span class="crtAcct">Don't have an account? <a href="/signup">Register</a></span>
         </form>
     </div>
 

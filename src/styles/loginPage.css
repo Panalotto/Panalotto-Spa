@@ -11,6 +11,10 @@
     color: white;
 }
 
+#icon {
+    margin-right: 550px;
+}
+
 #logintext {
     font-family: "Judson", serif;
     font-weight: 700;
@@ -20,7 +24,6 @@
     text-align: center;
     margin-top: 50px;
     margin-bottom: 20px;
-    margin-right: 75px;
     text-shadow: 0px 2px 4px #B00205;
 }
 
@@ -49,7 +52,10 @@
     right: 150px;
     top: 75px;
     height: 80vh;
-    background: linear-gradient(to bottom, #060B61, #3D45D9);
+    background: url('./icons/icon.png');
+    background-size: 250px;
+    background-repeat: no-repeat;
+    background-position: center;
     box-shadow: 0 0 10px #B700FF, 0 0 5px #B700FF; /* Neon glow */
     border-radius: 50px;
 }
@@ -66,7 +72,7 @@
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 label {
@@ -75,11 +81,12 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 350px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
+    color: black;
 }
 
 #errorMessage {
@@ -103,13 +110,14 @@ a:hover {
 button {
     width: 100%;
     padding: 12px;
-    background: #FF8000;
+    background: #281886;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 50px;
     font-size: 18px;
     cursor: pointer;
     transition: background 0.3s ease;
+    box-shadow: 0 0 10px #B700FF, 0px 5px 0px #B700FF; /* Neon glow */
 }
 
 button:hover {
@@ -120,4 +128,5 @@ button:hover {
     display: block;
     margin-top: 15px;
     font-size: 14px;
+    margin-left: 75px;
 }
