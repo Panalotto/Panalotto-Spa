@@ -3,26 +3,45 @@
 
 export default function LogIn(root) {
     root.innerHTML = `
-    <div id="logo"></div>
+    <div id="header-container">
+        <h1 id="headtext">PANALOTTO</h1>
+    </div>
+
+    <img id="icon" src="./icons/icon.png">
     
     <div id="loginPage">
+<<<<<<< HEAD:public/components/login.js
         <div id="time"></div>
 
         <div class="container">
             <form enctype="multipart/form-data" id="signin">
                 <label for="username"><b>Username</b></label>
                 <input type="text" name="username" required>
+=======
+        <form enctype="multipart/form-data" id="signin">
+        <h2 id="logintext">Login</h2>
+            <label for="username"><b>Username</b></label>
+            <input type="text" name="username" placeholder="Enter Username" required>
 
-                <label for="password"><b>Password</b></label>
-                <input type="password" name="password" required>
-                <span id="errorMessage" style="display: none; color: red;"></span>
+            <label for="password"><b>Password</b></label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <span id="errorMessage"></span>
+>>>>>>> f71ba5860df2db590339caedf78f95faa3ed08dd:src/components/login.js
 
+            <button type="submit">Login</button>
+            <span class="crtAcct">Don't have an account? <a href="/signup">Register</a></span>
+        </form>
+    </div>
+
+<<<<<<< HEAD:public/components/login.js
                 <a href="/identify">Forgot password?</a>
                 <button type="submit">Login</button>
             </form>
             <span class="crtAcct">Don't have an account? <a href="/signup">Sign Up</a></span>
         </div>
     </div>
+=======
+>>>>>>> f71ba5860df2db590339caedf78f95faa3ed08dd:src/components/login.js
     `;
 
     // ⏳ Countdown Timer Update (WebSocket)

@@ -6,7 +6,7 @@
 
 
 body {
-    background: linear-gradient(135deg, #FF8000, #F1C472);
+    background: linear-gradient(180deg, #000000, #3D45D9);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,8 +19,6 @@ body.dark-mode {
     color: white; /* Light text color */
 }
 
-
-
 #header.dark-mode {
     background: #1f1f1f; /* Dark header background */
 }
@@ -31,7 +29,6 @@ body.dark-mode {
 
 #main{
     margin: 0 auto;
-    background-color: #F7EED3;
     width: 900px;
     height: auto;
     margin-top: 60px;
