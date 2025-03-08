@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+import '../styles/loginPage.css';
+
+>>>>>>> 7112d4e4aae1f1371c1130413f1c7cb52d431847
 export default function LogIn(root) {
     root.innerHTML = `
     <div id="header-container">

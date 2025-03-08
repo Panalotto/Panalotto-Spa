@@ -1,8 +1,9 @@
-// import axios from 'axios';
-// import '../styles/signIn.css'
+import axios from 'axios';
+import '../styles/signup.css'
 
 export default function CreateAccount(root){
     root.innerHTML = `
+    <h1 id="headtextsignup">PANALOTTO</h1>
     <img id="cards" src="./icons/cards.png">
     <div class="container">
         <div class="register-card">
