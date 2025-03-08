@@ -20,6 +20,17 @@ body {
     margin-left: 500px;
 }
 
+#headtextsignup {
+    font-family: "Kumar One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFEA00;
+    text-shadow:  
+        0px 5px 4px #FF7700;
+    font-size: 20px;
+    margin-left: 550px;
+}
+
 .container {
     display: flex;
     max-width: 1000px;
@@ -41,7 +52,6 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
-
 
 .register-card h1 {
     font-family: "Judson", serif;

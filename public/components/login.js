@@ -1,5 +1,5 @@
-// import axios from 'axios';
-// import '../styles/loginPage.css';
+import axios from 'axios';
+import '../styles/loginPage.css';
 
 export default function LogIn(root) {
     root.innerHTML = `
