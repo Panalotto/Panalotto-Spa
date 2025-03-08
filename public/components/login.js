@@ -1,42 +1,70 @@
-// import axios from 'axios';
-// import '../styles/loginPage.css';
-
 export default function LogIn(root) {
     root.innerHTML = `
     <div id="header-container">
         <h1 id="headtext">PANALOTTO</h1>
     </div>
 
-    <img id="icon" src="./icons/icon.png">
+    <div id="container">
+        <img id="icon" src="./icons/icon.png">
+        <div id="time">Connecting...</div>
+    </div>
     
     <div id="loginPage">
         <form enctype="multipart/form-data" id="signin">
-        <h2 id="logintext">Login</h2>
+            <h2 id="logintext">Login</h2>
             <label for="username"><b>Username</b></label>
             <input type="text" name="username" placeholder="Enter Username" required>
 
             <label for="password"><b>Password</b></label>
             <input type="password" name="password" placeholder="Enter Password" required>
-            <span id="errorMessage"></span>
+            <span id="errorMessage" class="error-message"></span>
 
             <button type="submit">Login</button>
             <span class="crtAcct">Don't have an account? <a href="/signup">Register</a></span>
         </form>
     </div>
-
     `;
 
-    // ⏳ Countdown Timer Update (WebSocket)
+    // 🎯 WebSocket Countdown Update
     const timeElement = document.getElementById('time');
-    const socket = new WebSocket('ws://localhost:9000'); // Connect WebSocket
+    const WS_URL = "ws://localhost:9000";
+    let socket = null;
 
-    socket.onmessage = (event) => {
-        timeElement.innerText = `Time left: ${event.data} seconds`;
-    };
+    function connectWebSocket() {
+        socket = new WebSocket(WS_URL);
 
-    socket.onerror = (error) => {
-        console.error("WebSocket Error:", error);
-    };
+        socket.onopen = () => {
+            console.log("WebSocket Connected!");
+            timeElement.innerText = "Waiting for countdown...";
+        };
+
+        socket.onmessage = (event) => {
+            try {
+                const data = JSON.parse(event.data);
+
+                if (data.event === "countdownUpdate") {
+                    timeElement.innerText = `Time left: ${data.countdown} seconds`;
+                } else if (data.event === "roundFinished") {
+                    timeElement.innerText = `Round Finished! Winning Number: ${data.result}`;
+                }
+            } catch (error) {
+                console.error("Error parsing WebSocket message:", error);
+            }
+        };
+
+        socket.onerror = (error) => {
+            console.error("WebSocket Error:", error);
+            timeElement.innerText = "Connection Error!";
+        };
+
+        socket.onclose = () => {
+            console.log("WebSocket Disconnected! Reconnecting...");
+            timeElement.innerText = "Reconnecting...";
+            setTimeout(connectWebSocket, 3000);
+        };
+    }
+
+    connectWebSocket(); // Initialize WebSocket Connection
 
     // 🔥 Login Form Handling
     const errorMessage = document.getElementById('errorMessage');
@@ -64,7 +92,7 @@ export default function LogIn(root) {
             }
         } catch (error) {
             console.error(error);
-            errorMessage.textContent = "Server error. Please try again.";
+            errorMessage.textContent = error.response?.data?.message || "Server error. Please try again.";
             errorMessage.style.display = 'block';
         }
     });
