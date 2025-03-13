@@ -31,6 +31,15 @@ body {
     margin-left: 550px;
 }
 
+.signup-btn, #back-btn {
+    width: 100%; /* Make buttons stretch to fit the container */
+    padding: 12px;
+    border-radius: 10px; /* Adjust border radius to match design */
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
 .container {
     display: flex;
     max-width: 1000px;
@@ -50,7 +59,18 @@ body {
     position: fixed;
     left: 200px;
     top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transform: translateY(-50%);
+}
+
+.register-card form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .register-card h1 {
@@ -84,29 +104,6 @@ body {
     transform: translateY(0);
 }
 
-.form-group input:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 15px rgba(153, 50, 204, 0.5);
-    transform: translateY(-3px);
-}
-
-.form-group input:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 5px 15px rgba(153, 50, 204, 0.7);
-    transform: translateY(-3px);
-}
-
-.form-register {
-    gap: 15px;
-}
-
-#back-btn {
-    padding: 10px;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
 .signup-btn {
     background-color: white;
     color: black;
@@ -117,7 +114,7 @@ body {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .signup-btn:hover {

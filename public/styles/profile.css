@@ -187,16 +187,6 @@ body {
     z-index: 1000;
 }
 
-.popup {
-    background: linear-gradient(135deg, #4B0082, #9400D3);
-    border: 2px solid #FF00FF;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 900px;
-    padding: 20px;
-    position: relative;
-}
-
 .popup-header {
     display: flex;
     justify-content: space-between;

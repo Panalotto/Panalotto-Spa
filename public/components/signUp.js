@@ -7,28 +7,30 @@ export default function CreateAccount(root){
     <img id="cards" src="./icons/cards.png">
     <div class="container">
         <div class="register-card">
-            <h1>Register</h1>
-            <form class="form-register">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter email" required>
-                </div>
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm password</label>
-                    <input type="password" id="confirm-password" placeholder="Enter password" required>
-                </div>
-                <button type="submit" class="signup-btn">Signup</button>
-                <button data-path=/signIn id="back-btn">Back</button>
-            </form>
-        </div>
+          <h1>Register</h1>
+          <form id="form-register">
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" placeholder="Enter email" required>
+              </div>
+              <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" placeholder="Enter username" required>
+              </div>
+              <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" placeholder="Enter password" required>
+              </div>
+              <div class="form-group">
+                  <label for="confirm-password">Confirm password</label>
+                  <input type="password" id="confirm-password" placeholder="Enter password" required>
+              </div>
+              <div class="button-container">
+                  <button type="submit" id="signup-button">Signup</button>
+                  <button data-path="/signIn" id="back-button">Back</button>
+              </div>
+          </form>
+      </div>
     </div>   
     `;
 
