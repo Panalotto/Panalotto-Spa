@@ -1,14 +1,39 @@
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+import '../styles/loginPage.css';
+
+>>>>>>> ed7e279b126ee4ea21c5792ec5bbae39b3a4c98f
 export default function LogIn(root) {
     root.innerHTML = `
     <div id="header-container">
         <h1 id="headtext">PANALOTTO</h1>
     </div>
 
+<<<<<<< HEAD
     <div id="container">
         <img id="icon" src="./icons/icon.png">
         <div id="time">Connecting...</div>
         
+=======
+    <div class="ball-container">
+        <div id="time">Next Draw: 60 seconds</div>
+
+        <div id="draw-numbers">
+            <div class="number-box">10</div>
+            <div class="number-box">10</div>
+            <div class="number-box">10</div>
+            <div class="number-box">10</div>
+            <div class="number-box">10</div>
+            <div class="number-box">10</div>
+        </div>
+>>>>>>> ed7e279b126ee4ea21c5792ec5bbae39b3a4c98f
     </div>
+    
+    <div class="prize-box">
+        <span class="dollar-icon">$ 50000</span>
+    </div>
+
     
     <div id="loginPage">
         <form enctype="multipart/form-data" id="signin">

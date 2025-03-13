@@ -30,9 +30,7 @@
     font-family: "Kumar One", serif;
     font-weight: 400;
     font-style: normal;
-    color: #FFEA00;
-    text-shadow:  
-        0px 5px 4px #FF7700;
+    color: #FF00C4;
     font-size: 20px;
 }
 
@@ -45,19 +43,69 @@
     right: 150px;
     top: 75px;
     height: 80vh;
-    background: url('./icons/icon.png');
     background-size: 250px;
     background-repeat: no-repeat;
     background-position: center;
-    box-shadow: 0 0 10px #B700FF, 0 0 5px #B700FF; /* Neon glow */
+    box-shadow: 0 0 10px #B700FF, 0 0 5px #B700FF;
     border-radius: 50px;
 }
 
-.container {
-    padding: 30px;
-    border-radius: 12px;
-    width: 350px;
-    text-align: center;
+.ball-container {
+    margin-right: 600px;
+    background-color: #281886;
+    display: flex;
+    gap: 5px;
+    padding: 50px;
+    flex-direction: column;
+    border-radius: 50px;
+}
+
+#time {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF00FF;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.dollar-icon {
+    color: gold;
+    font-size: 24px;
+    margin-left: 125px;
+}
+
+.prize-box {
+    background: navy;
+    color: yellow;
+    font-weight: bold;
+    margin-right: 600px;
+    border-radius: 15px;
+    padding: 10px;
+    width: 40%;
+    font-size: 22px;
+    margin-top: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 0, 0.7);
+}
+
+.number-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #FF00FF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+#draw-numbers {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 form {

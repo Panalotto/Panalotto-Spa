@@ -195,6 +195,7 @@
     z-index: 1000;
 }
 
+<<<<<<< HEAD
 
 .popup {
     background: linear-gradient(135deg, #4B0082, #9400D3);
@@ -211,6 +212,8 @@
 }
 
 
+=======
+>>>>>>> ed7e279b126ee4ea21c5792ec5bbae39b3a4c98f
 .popup-header {
     display: flex;
     justify-content: space-between;
