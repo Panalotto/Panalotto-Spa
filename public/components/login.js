@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-import axios from 'axios';
-import '../styles/loginPage.css';
-
->>>>>>> 7112d4e4aae1f1371c1130413f1c7cb52d431847
 export default function LogIn(root) {
     root.innerHTML = `
     <div id="header-container">
@@ -13,6 +7,7 @@ export default function LogIn(root) {
     <div id="container">
         <img id="icon" src="./icons/icon.png">
         <div id="time">Connecting...</div>
+        
     </div>
     
     <div id="loginPage">
@@ -70,7 +65,7 @@ export default function LogIn(root) {
         };
     }
 
-    connectWebSocket(); // Initialize WebSocket Connection
+    connectWebSocket(); 
 
     // 🔥 Login Form Handling
     const errorMessage = document.getElementById('errorMessage');
@@ -90,7 +85,7 @@ export default function LogIn(root) {
 
             if (response.data.success) {
                 localStorage.setItem('token', response.data.data.token);
-                history.pushState({}, '', '/');
+                history.pushState({}, '', '/mainpage');
                 window.dispatchEvent(new Event('popstate'));
             } else {
                 errorMessage.textContent = response.data.message;

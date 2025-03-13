@@ -1,5 +1,5 @@
-import axios from 'axios';
-import '../styles/signup.css'
+// import axios from 'axios';
+// import '../styles/signup.css'
 
 export default function CreateAccount(root){
     root.innerHTML = `
@@ -8,64 +8,74 @@ export default function CreateAccount(root){
     <div class="container">
         <div class="register-card">
             <h1>Register</h1>
-            <form class="form-register">
+            <form class="form-register" enctype="multipart/form-data" id="signup">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter email" required>
+                    <input type="email" id="email" name="email" placeholder="Enter email" required>
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter username" required>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter password" required>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">Confirm password</label>
-                    <input type="password" id="confirm-password" placeholder="Enter password" required>
+                    <input type="password" id="confirm-password" name="confirmPassword" placeholder="Enter password" required>
                 </div>
+                <div id="errorMessage" style="display:none; color:red;"></div>
                 <button type="submit" class="signup-btn">Signup</button>
-                <button data-path=/signIn id="back-btn">Back</button>
+                <button type="button" id="back-btn">Back</button>
             </form>
         </div>
     </div>   
     `;
 
-    const signUp = document.getElementById('signup');
-    const popupOverlay = document.getElementById('popupOverlay');
     const errorMessage = document.getElementById('errorMessage');
-    const usernameError = document.getElementById('usernameError');
-    const emailError = document.getElementById('emailError');
+    const signUp = document.getElementById('signup');
 
-    signUp.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target)
+    signUp.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorMessage.style.display = 'none';
 
-      usernameError.style.display = 'none';
-      emailError.style.display = 'none';
-      errorMessage.style.display = 'none';
+        const formData = new FormData(signUp);
+        const payload = {
+            email: formData.get('email'),
+            username: formData.get('username'),
+            password: formData.get('password'),
+            confirmPassword: formData.get('confirmPassword')
+        };
 
-      axios.post(`http://localhost:3000/v1/account`, formData, {
-        headers: {
-          apikey: `jenather`,
+        if (payload.password !== payload.confirmPassword) {
+            errorMessage.textContent = "Passwords do not match!";
+            errorMessage.style.display = 'block';
+            return;
         }
-      })
-      .then((response) => {
-        if (response.data.success === true){
-          popupOverlay.style.display = 'block';
+
+        try {
+            const response = await axios.post(`http://localhost:3000/v1/account/`, payload, {
+                headers: { apikey: `panalotto` }
+            });
+
+            if (response.data.success) {
+                localStorage.setItem('token', response.data.data.token);
+                history.pushState({}, '', '/signIn');
+                window.dispatchEvent(new Event('popstate'));
+            } else {
+                errorMessage.textContent = response.data.message;
+                errorMessage.style.display = 'block';
+            }
+        } catch (error) {
+            console.error(error);
+            errorMessage.textContent = error.response?.data?.message || "Server error. Please try again.";
+            errorMessage.style.display = 'block';
         }
-        const message = response.data.message;
-        if (message === 'username'){
-          usernameError.textContent = 'Username already exist';
-          usernameError.style.display = 'block';
-        } else if (message === 'email'){
-          emailError.textContent = "Email already exist";
-          emailError.style.display = 'block';
-        }
-      })
-      .catch((error) => {
-        console.error('<error>', error)
-      })
-    })
+    });
+
+    document.getElementById('back-btn').addEventListener('click', () => {
+        history.pushState({}, '', '/signIn');
+        window.dispatchEvent(new Event('popstate'));
+    });
 }

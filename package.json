@@ -2,11 +2,13 @@
   "name": "panalotto-spa",
   "version": "1.0.0",
   "description": "",
-  "main": "public/main.js",
+  "main": "master/server.js",
   "type": "module",
   "scripts": {
     "start": "vite preview",
     "build": "parcel build public/index.html",
+    "master": "nodemon --watch master master/server.js",
+    "replicas": "nodemon --watch replicas replicas/server.js",
     "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

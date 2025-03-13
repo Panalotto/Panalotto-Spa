@@ -6,40 +6,26 @@
 
 
 body {
-    background: linear-gradient(180deg, #000000, #3D45D9);
+    background: linear-gradient(to right, #060B61 20%, #8A00E0 50%, #B700FF 80%);
+
+
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-
-body.dark-mode {
-    background-color: #121212; /* Dark background */
-    color: white; /* Light text color */
-}
-
-#header.dark-mode {
-    background: #1f1f1f; /* Dark header background */
-}
-
-#darkmode.dark-mode {
-    filter: invert(1); /* Invert moon icon for better visibility in dark mode */
-}
 
 #main{
     margin: 0 auto;
     width: 900px;
     height: auto;
-    margin-top: 60px;
 }
 
 
 
-#container.dark-mode #main,
-#container.dark-mode .home-container {
-    background-color: #1e1e1e; /* Ensure all nested elements match the dark theme */
-}
 
 #container #main{
     display: flex;

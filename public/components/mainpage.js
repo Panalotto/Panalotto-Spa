@@ -1,10 +1,10 @@
-import '../styles/mainpage.css';
+// import '../styles/mainpage.css';
 
 export default function mainpage(root) {
     root.innerHTML = `
     <div class="containermainpage">
         <div class="draw-section">
-            <div class="draw-title">Next Draw: <span id="countdown">60</span> seconds</div>
+            <div class="draw-title">Next Draw: <span id="time">60</span> seconds</div>
             <div class="draw-boxes">
                 <div class="draw-box"></div>
                 <div class="draw-box"></div>
@@ -52,4 +52,44 @@ export default function mainpage(root) {
         </div>
     </div>
     `;
+
+    const timeElement = document.getElementById('time');
+    const WS_URL = "ws://localhost:9000";
+    let socket = null;
+
+    function connectWebSocket() {
+        socket = new WebSocket(WS_URL);
+
+        socket.onopen = () => {
+            console.log("WebSocket Connected!");
+            timeElement.innerText = "Waiting for countdown...";
+        };
+
+        socket.onmessage = (event) => {
+            try {
+                const data = JSON.parse(event.data);
+
+                if (data.event === "countdownUpdate") {
+                    timeElement.innerText = `${data.countdown}`;
+                } else if (data.event === "roundFinished") {
+                    timeElement.innerText = `Round Finished! Winning Number: ${data.result}`;
+                }
+            } catch (error) {
+                console.error("Error parsing WebSocket message:", error);
+            }
+        };
+
+        socket.onerror = (error) => {
+            console.error("WebSocket Error:", error);
+            timeElement.innerText = "Connection Error!";
+        };
+
+        socket.onclose = () => {
+            console.log("WebSocket Disconnected! Reconnecting...");
+            timeElement.innerText = "Reconnecting...";
+            setTimeout(connectWebSocket, 3000);
+        };
+    }
+
+    connectWebSocket(); 
 }

@@ -2,19 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap"');
 @import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap');
 
-html, body {
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-}
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, #0a0a2a 0%, #3a3ad7 100%);
-}
 
 #cards {
     margin-left: 500px;
@@ -32,7 +20,7 @@ body {
 }
 
 .container {
-    display: flex;
+    /* display: flex; */
     max-width: 1000px;
     width: 100%;
     justify-content: space-between;
