@@ -22,6 +22,11 @@ export default function connectWebSocket(timeElement, numberBoxes) {
                     winningNumbers = winningNumbers.split(/,\s*/).map(num => parseInt(num, 10));
                 }
 
+                
+
+
+
+
                 if (!Array.isArray(winningNumbers)) {
                     console.error("Invalid winning numbers format:", winningNumbers);
                     return;
