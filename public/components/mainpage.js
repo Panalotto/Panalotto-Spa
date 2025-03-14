@@ -25,7 +25,7 @@ export default async function mainpage(root) {
                 ${Array(6).fill('<input type="text" class="input-box" maxlength="2" pattern="[0-9]{1,2}">').join('')}
                 </div>
                 <div class="buttons">
-                    <button type="submit" class="btn enter-btn">Enter</button>
+                    <button type="submit" class="btn enter-btn">Bet</button>
                     <button type="button" class="btn reset-btn">Reset</button>
                 </div>
             </form>

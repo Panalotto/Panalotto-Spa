@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -8,7 +9,7 @@
             justify-content: center;
             align-items: center;
             color: white;
-            background: url('../icons/background.jpg') no-repeat center center fixed;
+            background: url('../icons/mainbg.jpg') no-repeat center center fixed;
             background-size: cover;  /* Ensures full coverage without distortion */
         }
 
@@ -18,19 +19,18 @@
         }
 
         .group-bar {
-            background-color: rgba(40, 24, 134, 0.9);
-            padding: 10px;
+            background-color: rgba(40, 24, 134, 0.5); /* Dark purple gradient */
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid purple;
-            position: absolute;
+            position: absolute; /* Ensures it stays in place */
             top: 0;
             left: 0;
-            width: 100vw;
-            max-width: 100%;
-            box-sizing: border-box;
-            z-index: 1000;
+            width: 100vw; /* Ensures full width */
+            max-width: 100%; /* Prevents unwanted shrinking */
+            box-sizing: border-box; /* Ensures padding doesn't exceed width */
+            z-index: 1000; /* Keeps it above other elements */
         }
         
         #headtext {
@@ -50,6 +50,7 @@
             justify-content: center;
             font-size: 18px;
             margin-right: 10px;
+            margin-top: 8px;
         }
         
         
@@ -74,10 +75,18 @@
             object-fit: cover;
         }
 
-        .draw-section, .input-section {
-            background-color: rgba(13, 12, 44, 0.3);
+        .draw-section {
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 25px;
             border: 2px solid #ff00ff; /* Neon purple */
+            margin-top: 65px;
+        }
+
+        .input-section {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(255, 0, 196, 0.6));
+            border-radius: 25px;
+            border: 2px solid #ff00ff; /* Neon purple */
+            margin-top: 20px;
         }
 
         .draw-title {
@@ -88,9 +97,10 @@
         }
         
         .input-title {
-            color: #ffd700; /* Golden yellow */
+            color: #ff00ff; /* Golden yellow */
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            margin-top: 10px;
             font-size: 22px;
         }
 
@@ -103,9 +113,15 @@
         .draw-box, .input-box {
             width: 70px;
             height: 70px;
-            background-color: #3a50c9; /* Blue */
+            background-color: #060B61; /* Blue */
             border-radius: 15px;
             border: 2px solid #ff00ff; /* Neon purple */
+            color: #FF00C4;
+            text-align: center;
+            font-family: "Kumar One", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
         }
 
         .buttons {
