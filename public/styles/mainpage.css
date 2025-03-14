@@ -20,6 +20,7 @@
             width: 100%;
             max-width: 760px;
             padding: 20px;
+            
         }
 
         header {
@@ -28,6 +29,37 @@
             align-items: center;
             margin-bottom: 30px;
         }
+
+        .group-bar {
+            background: linear-gradient(to right, #1a0138, #3b0068); /* Dark purple gradient */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid purple;
+            position: relative;
+        }
+        
+        #headtext {
+            font-size: 14px;
+            font-weight: lighter;
+            color: #ff4ef5; /* Pinkish text */
+            margin-left: 10px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: #ffcccb; /* Light pinkish avatar bg */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        
 
         .logo {
             font-size: 28px;

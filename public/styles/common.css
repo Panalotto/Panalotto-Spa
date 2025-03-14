@@ -12,6 +12,8 @@ body {
     height: 100vh;
     display: flex;
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
     justify-content: center;
     align-items: center;
     overflow-x: hidden;

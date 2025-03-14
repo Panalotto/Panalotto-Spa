@@ -4,6 +4,13 @@ import connectWebSocket from './connectWeb/connectCountdown.js';
 export default function mainpage(root) {
     root.innerHTML = `
     <div class="containermainpage">
+
+        <div class="group-bar">
+            <h1 id="headtext">PANALOTTO</h1>
+            <div class="avatar"><img src="../icons/image 3.png"></div>
+
+
+        </div>
         <div class="draw-section">
             <div class="draw-title">Next Draw: <span id="time">60</span> seconds</div>
             <div class="draw-boxes">
