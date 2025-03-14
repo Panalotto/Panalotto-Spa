@@ -1,4 +1,5 @@
 // import '../styles/mainpage.css';
+import connectWebSocket from './connectWeb/connectCountdown.js';
 
 export default function mainpage(root) {
     root.innerHTML = `
@@ -6,24 +7,14 @@ export default function mainpage(root) {
         <div class="draw-section">
             <div class="draw-title">Next Draw: <span id="time">60</span> seconds</div>
             <div class="draw-boxes">
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
+                ${Array(6).fill('<div class="draw-box">--</div>').join('')}
             </div>
         </div>
 
         <div class="input-section">
             <div class="input-title">Enter number</div>
             <div class="input-boxes">
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
+                ${Array(6).fill('<input type="text" class="input-box" maxlength="2" pattern="[0-9]{1,2}">').join('')}
             </div>
             
             <div class="buttons">
@@ -53,43 +44,55 @@ export default function mainpage(root) {
     </div>
     `;
 
+    // 🎯 WebSocket Countdown & Number Updates
     const timeElement = document.getElementById('time');
-    const WS_URL = "ws://localhost:9000";
-    let socket = null;
+    const numberBoxes = document.querySelectorAll(".draw-box");
 
-    function connectWebSocket() {
-        socket = new WebSocket(WS_URL);
+    
+    connectWebSocket(timeElement, numberBoxes);
+    
 
-        socket.onopen = () => {
-            console.log("WebSocket Connected!");
-            timeElement.innerText = "Waiting for countdown...";
-        };
+    // 🎯 Input Handling: Allow only 1-45 & No Duplicates
+const inputBoxes = document.querySelectorAll(".input-box");
 
-        socket.onmessage = (event) => {
-            try {
-                const data = JSON.parse(event.data);
+inputBoxes.forEach((box, index) => {
+    box.addEventListener("input", (e) => {
+        let value = e.target.value.replace(/\D/g, ''); // 🔹 Remove non-numeric characters
 
-                if (data.event === "countdownUpdate") {
-                    timeElement.innerText = `${data.countdown}`;
-                } else if (data.event === "roundFinished") {
-                    timeElement.innerText = `Round Finished! Winning Number: ${data.result}`;
-                }
-            } catch (error) {
-                console.error("Error parsing WebSocket message:", error);
+        if (value !== "") {
+            let num = parseInt(value, 10);
+            if (num < 1) num = 1;
+            if (num > 45) num = 45;
+
+            // 🔹 Check for duplicates
+            let existingNumbers = Array.from(inputBoxes)
+                .filter(b => b !== e.target) // Exclude current input
+                .map(b => b.value);
+
+            if (existingNumbers.includes(num.toString())) {
+                e.target.value = ""; // Clear if duplicate
+                return;
             }
-        };
 
-        socket.onerror = (error) => {
-            console.error("WebSocket Error:", error);
-            timeElement.innerText = "Connection Error!";
-        };
+            e.target.value = num.toString();
+        }
+    });
 
-        socket.onclose = () => {
-            console.log("WebSocket Disconnected! Reconnecting...");
-            timeElement.innerText = "Reconnecting...";
-            setTimeout(connectWebSocket, 3000);
-        };
-    }
+    box.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === "ArrowRight") {
+            if (index < inputBoxes.length - 1) {
+                inputBoxes[index + 1].focus();
+            }
+        } else if (e.key === "ArrowLeft") {
+            if (index > 0) {
+                inputBoxes[index - 1].focus();
+            }
+        }
+    });
+});
 
-    connectWebSocket(); 
+    
+    document.querySelector(".reset-btn").addEventListener("click", () => {
+        inputBoxes.forEach(box => box.value = "");
+    });
 }

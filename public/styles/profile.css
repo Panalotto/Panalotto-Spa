@@ -195,25 +195,6 @@
     z-index: 1000;
 }
 
-<<<<<<< HEAD
-
-.popup {
-    background: linear-gradient(135deg, #4B0082, #9400D3);
-    border: 2px solid #FF00FF;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.5);
-}
-
-
-=======
->>>>>>> ed7e279b126ee4ea21c5792ec5bbae39b3a4c98f
 .popup-header {
     display: flex;
     justify-content: space-between;

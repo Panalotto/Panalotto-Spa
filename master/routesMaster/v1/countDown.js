@@ -18,7 +18,7 @@ export function setupWebSocket(server) {
 
         // http://localhost:3000/v1/latest-drawId
 
-        const previous = await axios.get("http:localhost:3000/v1/latest-drawId");
+        const previous = await axios.get("http://localhost:3000/v1/result/latest-drawId");
 
         const draw_id = previous + 1 || 1; 
         const draw_time = new Date().toISOString().slice(0, 19).replace("T", " "); 
@@ -26,7 +26,7 @@ export function setupWebSocket(server) {
         const payload = { draw_id, draw_time, winning_numbers };
 
         try {
-            const response = await axios.post("http://localhost:3000/v1/draw", payload, {
+            const response = await axios.post("http://localhost:3000/v1/result", payload, {
                 headers: { apikey: "panalotto" }
             });
             console.log("Lotto result inserted:", response.data);
