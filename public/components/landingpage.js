@@ -1,4 +1,4 @@
-import '../styles/landingpage.css';
+// import '../styles/landingpage.css';
 
 export default function LandingPageComponent(root) {
     if (!root) {
