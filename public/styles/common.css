@@ -6,9 +6,7 @@
 
 
 body {
-    background: linear-gradient(to right, #060B61 20%, #8A00E0 50%, #B700FF 80%);
-
-
+    background: linear-gradient(to bottom, #060B61 20%, #B700FF 80%);
     height: 100vh;
     display: flex;
     overflow: hidden;

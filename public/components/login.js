@@ -13,14 +13,11 @@ export default async function LogIn(root) {
                 <div id="draw-numbers">
                     ${Array(6).fill('<div class="number-box">--</div>').join('')}
                 </div>
-
-                <div id="prize-box">
-                    <span class="dollar-icon">$ 50000</span>
-                </div>
             </div>
-            
-            
 
+            <div id="prize-box">
+                <span class="dollar-icon">$ 50000</span>
+            </div>
 
             <div id="loginPage">
                 <form enctype="multipart/form-data" id="signin">
