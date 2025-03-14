@@ -18,6 +18,14 @@
     justify-content: center;
 }
 
+#imgsignup {
+    margin-left: 600px;
+    width: 700px; /* Adjust size */
+    height: 500px; /* Adjust size */
+    background-size: cover; /* Ensures the image covers the element */
+    background-position: center; /* Centers the image */
+}
+
 #icon {
     margin-right: 550px;
 }
@@ -28,7 +36,7 @@
     font-size: 50px;
     font-style: normal;
     color: #B700FF;
-    text-align: center;
+    text-align: left;
     margin-top: 50px;
     margin-bottom: 20px;
     text-shadow: 0px 2px 4px #B00205;
@@ -62,10 +70,11 @@
     background-position: center;
     box-shadow: 0 0 10px #B700FF, 0 0 5px #B700FF;
     border-radius: 50px;
+    background-color: rgba(40, 24, 134, 0.9);
 }
 
 .ball-container {
-    background-color: #281886;
+    background-color: rgba(40, 24, 134, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,9 +83,8 @@
     border-radius: 50px;
     width: 30vw;
     max-width: 425px;
-    
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 30%;
     transform: translate(-50%, -50%);
 }
@@ -89,20 +97,23 @@
     margin-bottom: 10px;
 }
 
-.prize-box {
+#prize-box {
     background: navy;
     color: yellow;
     font-weight: bold;
     border-radius: 15px;
     padding: 10px;
-    width: 200px; 
+    width: 300px; 
     font-size: 22px;
-    margin-top: 10px;
     box-shadow: 0px 4px 10px rgba(255, 255, 0, 0.7);
     text-align: center;
     font-family: "Kumar One", serif;
     font-weight: 400;
     font-style: normal;
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    transform: translate(-50%, -50%);
 }
 
 .number-box {
@@ -154,7 +165,7 @@ input {
 }
 
 a {
-    color: #FF8000;
+    color: #FF00C4;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;

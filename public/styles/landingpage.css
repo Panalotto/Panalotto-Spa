@@ -84,7 +84,7 @@
     background: linear-gradient(to right, #CF1C1C, #F75555);
     box-shadow: none;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #register-btn {
@@ -92,6 +92,7 @@
     background: linear-gradient(to right, #C5A118, #F7C757);
     box-shadow: none;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .game-container {

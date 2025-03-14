@@ -32,7 +32,7 @@ export default function CreateAccount(root){
             </form>
           </div>
         <div class="signUpbg-container">
-          <img src="./icons/signUpbg.png" alt="signupbg">
+          <img id="imgsignup" src="./icons/signUpbg.png" alt="signupbg">
         </div>
     </div>
 
