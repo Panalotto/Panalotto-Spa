@@ -7,7 +7,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+<<<<<<< HEAD
+   
+=======
     background: linear-gradient(to bottom, black, #1a1a50, #B700FF);
+>>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
 }
 .popup-overlay {
     position: fixed;

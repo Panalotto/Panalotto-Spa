@@ -1,4 +1,4 @@
-import '../styles/header.css';
+import '../styles/common.css';
 
 export default function Header(root) {
     root.innerHTML = `
