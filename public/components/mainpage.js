@@ -1,29 +1,20 @@
-import '../styles/mainpage.css';
+// import '../styles/mainpage.css';
+import connectWebSocket from './connectWeb/connectCountdown.js';
 
 export default function mainpage(root) {
     root.innerHTML = `
     <div class="containermainpage">
         <div class="draw-section">
-            <div class="draw-title">Next Draw: <span id="countdown">60</span> seconds</div>
+            <div class="draw-title">Next Draw: <span id="time">60</span> seconds</div>
             <div class="draw-boxes">
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
-                <div class="draw-box"></div>
+                ${Array(6).fill('<div class="draw-box">--</div>').join('')}
             </div>
         </div>
 
         <div class="input-section">
             <div class="input-title">Enter number</div>
             <div class="input-boxes">
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
-                <div class="input-box"></div>
+                ${Array(6).fill('<input type="text" class="input-box" maxlength="2" pattern="[0-9]{1,2}">').join('')}
             </div>
             
             <div class="buttons">
@@ -52,4 +43,56 @@ export default function mainpage(root) {
         </div>
     </div>
     `;
+
+    // 🎯 WebSocket Countdown & Number Updates
+    const timeElement = document.getElementById('time');
+    const numberBoxes = document.querySelectorAll(".draw-box");
+
+    
+    connectWebSocket(timeElement, numberBoxes);
+    
+
+    // 🎯 Input Handling: Allow only 1-45 & No Duplicates
+const inputBoxes = document.querySelectorAll(".input-box");
+
+inputBoxes.forEach((box, index) => {
+    box.addEventListener("input", (e) => {
+        let value = e.target.value.replace(/\D/g, ''); // 🔹 Remove non-numeric characters
+
+        if (value !== "") {
+            let num = parseInt(value, 10);
+            if (num < 1) num = 1;
+            if (num > 45) num = 45;
+
+            // 🔹 Check for duplicates
+            let existingNumbers = Array.from(inputBoxes)
+                .filter(b => b !== e.target) // Exclude current input
+                .map(b => b.value);
+
+            if (existingNumbers.includes(num.toString())) {
+                e.target.value = ""; // Clear if duplicate
+                return;
+            }
+
+            e.target.value = num.toString();
+        }
+    });
+
+    box.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === "ArrowRight") {
+            if (index < inputBoxes.length - 1) {
+                inputBoxes[index + 1].focus();
+            }
+        } else if (e.key === "ArrowLeft") {
+            if (index > 0) {
+                inputBoxes[index - 1].focus();
+            }
+        }
+    });
+});
+
+    
+    document.querySelector(".reset-btn").addEventListener("click", () => {
+        inputBoxes.forEach(box => box.value = "");
+    });
 }

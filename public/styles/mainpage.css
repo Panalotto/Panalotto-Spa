@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
+<<<<<<< HEAD
         * {
             margin: 0;
             padding: 0;
@@ -16,6 +17,8 @@
             color: white;
         }
 
+=======
+>>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
         #containermainpage {
             width: 100%;
             max-width: 760px;
