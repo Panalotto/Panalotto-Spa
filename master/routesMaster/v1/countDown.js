@@ -35,7 +35,7 @@ export function setupWebSocket(server) {
         }
 
 
-        const data = JSON.stringify({ result });
+        const data = JSON.stringify({ event: "roundFinished", result });
 
         // http://localhost:3000/v1/draw
 

@@ -136,8 +136,8 @@
 
 @media screen and (min-width: 600px) {
     .game-container {
-      height: 300px;
-      width: 400px;
+      height: 600px;
+      width: 600px;
       background-image: url("../icons/banner.png");
     }
   }
@@ -145,18 +145,18 @@
 
 
 
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 320px) {
     .game-container {
         height: 30vh; /* Gawin itong full screen height */
         background-image: url("../icons/mobilecon.png");
         background-size: cover; /* Para masakop ang buong container */
-        background-position: center; /* Para naka-center */
-        background-repeat: no-repeat; /* Para hindi mag-duplicate */
-        width: 30%; /* Para sakupin ang buong lapad */
+        background-position: center; 
+        background-repeat: no-repeat; 
+        width: 30%; 
     }
 
     .play-button{
-        width: 30%;
+        width: 20%;
     }
     
 
@@ -169,10 +169,97 @@
         position: relative;
         top: -110px; /* Move it upwards */
     }
+
+    #popup-content{
+        width: 80%;
+    }
+
+    #message-popup{
+        width: 80%;
+        height: 80%;
+    }
+}
+
+
+@media screen and (max-width: 376px) {
+
     
+
+    .game-container {
+        height: 30vh; 
+        background-image: url("../icons/mobilecon.png");
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        width: 20%; 
+        display: flex;
+        
+    }
+
+    .play-button{
+        
+        width: 25%;
+    }
     
+
+    #landing-header {
+        width: 20%;
+        left: 40px;
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        margin: 0 auto; /* Center within parent */
+        position: relative;
+        top: -110px; /* Move it upwards */
+    }
+
+    #popup-content{
+        width: 80%;
+    }
+
+    #message-popup{
+        width: 80%;
+        height: 80%;
+    }
+}
+
+
+@media screen and (max-width: 430p) {
+
     
+
+    .game-container {
+        height: 30vh; /* Gawin itong full screen height */
+        background-image: url("../icons/mobilecon.png");
+        background-size: cover; /* Para masakop ang buong container */
+        background-position: center; /* Para naka-center */
+        background-repeat: no-repeat; /* Para hindi mag-duplicate */
+        width: 20%; /* Gawing mas malawak para sumakto */
+        display: flex;
+        
+    }
+
+    .play-button{
+        
+        width: 25%;
+    }
     
-    
-    
+
+    #landing-header {
+        width: 20%;
+        left: 40px;
+        display: flex;
+        justify-content: center; 
+        margin: 0 auto; 
+        position: relative;
+        top: -110px; 
+    }
+
+    #popup-content{
+        width: 80%;
+    }
+
+    #message-popup{
+        width: 80%;
+        height: 80%;
+    }
 }
