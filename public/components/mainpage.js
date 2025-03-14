@@ -11,6 +11,7 @@ export default async function mainpage(root) {
                 <a href="/profile" data-path="/profile">👤</a>
             </div>
         </div>
+
         <div class="draw-section">
             <div class="draw-title"> <span id="time"></span></div>
             <div class="draw-boxes">

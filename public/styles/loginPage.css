@@ -18,14 +18,6 @@
     justify-content: center;
 }
 
-#imgsignup {
-    margin-left: 600px;
-    width: 700px; /* Adjust size */
-    height: 500px; /* Adjust size */
-    background-size: cover; /* Ensures the image covers the element */
-    background-position: center; /* Centers the image */
-}
-
 #icon {
     margin-right: 550px;
 }
@@ -137,7 +129,7 @@
     margin-top: 20px;
 }
 
-form {
+.form-login {
     display: flex;
     flex-direction: column;
     gap: 15px;
