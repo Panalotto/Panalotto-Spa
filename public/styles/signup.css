@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap"');
+@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap');
 
 html, body {
@@ -7,9 +7,8 @@ html, body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    background-color: #0a0a2a; /* Added dark background color for mobile view */
+    background-color: #0a0a2a; /* Dark background */
 }
-
 
 .sign-up-container {
     display: grid;
@@ -18,6 +17,7 @@ html, body {
     width: 100%;
     gap: 40px;
     align-items: center;
+    min-height: 100vh;
 }
 
 .register-card {
@@ -37,6 +37,7 @@ html, body {
     font-size: 30px;
     color: #FF00FF;
     margin-bottom: 10px;
+    text-align: center; /* Centering the heading */
 }
 
 .form-group {
@@ -55,23 +56,18 @@ html, body {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    background-color: rgba(231, 226, 226, 0.1);
+    background-color: rgba(231, 226, 226, 0.15); /* Slightly increased opacity */
     color: white;
     transition: all 0.3s ease;
     transform: translateY(0);
 }
 
-.form-group input:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 15px rgba(153, 50, 204, 0.5);
-    transform: translateY(-3px);
-}
-
+.form-group input:hover,
 .form-group input:focus {
-    outline: none;
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 5px 15px rgba(153, 50, 204, 0.7);
     transform: translateY(-3px);
+    outline: none;
 }
 
 .form-register {
@@ -121,7 +117,7 @@ html, body {
     text-align: center;
 }
 
-/* Register link at bottom */
+/* Register link */
 .register-link {
     text-align: center;
     margin-top: 15px;
@@ -134,32 +130,31 @@ html, body {
     text-decoration: none;
 }
 
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     .sign-up-container {
         grid-template-columns: 1fr;
-        gap: 0;
-        padding: 0;
-        height:50%;
-        
+        padding: 20px;
+        height: auto;
         justify-items: center;
         align-items: center;
-        margin-top: 10%;
+        margin-top: 5%;
     }
     
     .signUpbg-container {
-        display: none; /* Hide background image container */
+        display: none; /* Hide background */
     }
     
     .register-card {
         max-width: 400px;
         justify-self: center;
         border-radius: 20px;
-        margin: 0 auto; /* Center the card */
+        margin: 0 auto;
     }
     
     .register-card h1 {
-        font-size: 1.9rem;
-        text-align: left;
+        font-size: 1.8rem;
+        text-align: left; 
     }
     
     .form-group label {
@@ -169,8 +164,7 @@ html, body {
     .form-group input {
         font-size: 0.9rem;
         padding: 10px;
-        margin-bottom: 10px;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.2); /* Increased contrast */
         border: none;
         border-radius: 5px;
     }
@@ -182,7 +176,7 @@ html, body {
     .signup-btn {
         font-size: 14px;
         padding: 10px;
-        background-color: #FF00FF; /* Purple button as shown in image */
+        background-color: #FF00FF;
         color: white;
         border-radius: 50px;
         margin-top: 10px;
@@ -195,14 +189,35 @@ html, body {
         display: block;
     }
     
-    /* Space for the "Don't have an account?" text */
+    /* Space for "Don't have an account?" */
     .register-link {
         margin-top: 15px;
         font-size: 12px;
     }
-    .login-link{
+    
+    .login-link {
         text-align: center;
     }
+}
 
+/* Extra small screens (up to 425px) */
+@media screen and (max-width: 425px) {
+    .register-card {
+        max-width: 350px;
+        padding: 18px;
+    }
 
+    .register-card h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .signup-btn {
+        font-size: 13px;
+        padding: 9px;
+    }
 }
