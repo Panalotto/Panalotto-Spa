@@ -13,18 +13,14 @@ export default function connectWebSocket(timeElement, numberBoxes) {
             // console.log("🟢 WebSocket Data Received:", data);
 
             if (data.event === "countdownUpdate") {
-                timeElement.innerText = `Time left: ${data.countdown} seconds`;
+                timeElement.innerText = `Next Draw: ${data.countdown} seconds`;
             } else if (data.event === "roundFinished") {
-                timeElement.innerText = "Round Finished! Updating numbers...";
+                timeElement.innerText = "";
 
                 let winningNumbers = data.result;
                 if (typeof winningNumbers === "string") {
                     winningNumbers = winningNumbers.split(/,\s*/).map(num => parseInt(num, 10));
                 }
-
-                
-
-
 
 
                 if (!Array.isArray(winningNumbers)) {
@@ -56,7 +52,7 @@ export default function connectWebSocket(timeElement, numberBoxes) {
         console.log("🔄 WebSocket Disconnected! Reconnecting in 3s...");
         timeElement.innerText = "Reconnecting...";
         
-        // ✅ FIXED: Pass timeElement and numberBoxes when reconnecting
+        
         setTimeout(() => connectWebSocket(timeElement, numberBoxes), 3000);
     };
 }
