@@ -1,43 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
-           
             min-height: 100vh;
+            min-width: 100vw;  /* Ensures it covers the full screen width */
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
+            background: url('../icons/background.jpg') no-repeat center center fixed;
+            background-size: cover;  /* Ensures full coverage without distortion */
         }
 
-        #containermainpage {
+        .containermainpage {
             width: 100%;
             max-width: 760px;
-            padding: 20px;
-            
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
         }
 
         .group-bar {
-            background: linear-gradient(to right, #1a0138, #3b0068); /* Dark purple gradient */
+            background-color: rgba(40, 24, 134, 0.9);
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid purple;
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            max-width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
         }
         
         #headtext {
@@ -84,8 +77,6 @@
         .draw-section, .input-section {
             background-color: rgba(13, 12, 44, 0.3);
             border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 30px;
             border: 2px solid #ff00ff; /* Neon purple */
         }
 

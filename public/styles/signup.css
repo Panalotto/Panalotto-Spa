@@ -2,7 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap"');
 @import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap');
 
-
+#imgsignup {
+    margin-left: 600px;
+    margin-top: 50px;
+    width: 700px; /* Adjust size */
+    height: 500px; /* Adjust size */
+    background-size: cover; /* Ensures the image covers the element */
+    background-position: center; /* Centers the image */
+}
 
 #cards {
     margin-left: 500px;
@@ -43,7 +50,7 @@
     padding: 30px;
     width: 400px;
     box-shadow: 0 0 20px rgba(153, 50, 204, 0.3);
-    height: 550px;
+    height: 510px;
     position: fixed;
     left: 200px;
     top: 50%;
@@ -52,6 +59,8 @@
     align-items: center;
     justify-content: center;
     transform: translateY(-50%);
+    margin-block-start: 25px;
+    background-color: rgba(40, 24, 134, 0.9);
 }
 
 .register-card form {
@@ -81,7 +90,6 @@
 }
 
 .form-group input {
-    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -102,7 +110,7 @@
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .signup-btn:hover {

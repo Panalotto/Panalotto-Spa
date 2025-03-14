@@ -20,7 +20,7 @@ export default async function LogIn(root) {
             </div>
 
             <div id="loginPage">
-                <form enctype="multipart/form-data" id="signin">
+                <form enctype="multipart/form-data" class="form-login">
                     <h2 id="logintext">Login</h2>
                     <label for="username"><b>Username</b></label>
                     <input type="text" id="username" name="username" placeholder="Enter Username" required>
@@ -31,7 +31,6 @@ export default async function LogIn(root) {
 
                     <button type="submit">Login</button>
                     <span class="crtAcct">Don't have an account? <a href="/signup" data-path="/signup">Register</a></span>
-
                 </form>
             </div>
         </div>
