@@ -6,26 +6,19 @@
 
 
 body {
-    background: linear-gradient(180deg, #000000, #3D45D9);
     height: 100vh;
     display: flex;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
+    background-image: url(C:\Users\levs0\OneDrive\Desktop\PortableGit\PANALOTTO\Panalotto-Spa\public\icons\panalottobg.jpg); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    opacity: 0.9; 
 }
 
-
-body.dark-mode {
-    background-color: #121212; /* Dark background */
-    color: white; /* Light text color */
-}
-
-#header.dark-mode {
-    background: #1f1f1f; /* Dark header background */
-}
-
-#darkmode.dark-mode {
-    filter: invert(1); /* Invert moon icon for better visibility in dark mode */
-}
 
 #main{
     margin: 0 auto;
@@ -35,6 +28,35 @@ body.dark-mode {
 }
 
 
+
+#logintext {
+    font-family: "Judson", serif;
+    font-weight: 700;
+    font-size: 50px;
+    font-style: normal;
+    color: #B700FF;
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-shadow: 0px 2px 4px #B00205;
+}
+
+#header-container {
+    position: absolute;
+    padding:20px;
+    top: 10px;
+    left: 20px;
+    width:100%;
+}
+#headtextsignup {
+    font-family: "Kumar One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFEA00;
+    text-shadow: 0px 5px 4px #FF7700;
+    font-size: 20px;
+    margin-left: 550px;
+}
 
 #container.dark-mode #main,
 #container.dark-mode .home-container {
@@ -55,5 +77,16 @@ body.dark-mode {
     }
     #container{
         border:none;
+    }
+   
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    #lastdraw-container, #loginPage {
+        width: 100%;
     }
 }

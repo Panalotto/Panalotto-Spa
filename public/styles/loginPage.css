@@ -7,7 +7,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'League Spartan', sans-serif;
     color: white;
 }
 
@@ -15,20 +14,11 @@
     margin-right: 550px;
 }
 
-#logintext {
-    font-family: "Judson", serif;
-    font-weight: 700;
-    font-size: 50px;
-    font-style: normal;
-    color: #B700FF;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    text-shadow: 0px 2px 4px #B00205;
-}
+
 
 #header-container {
     position: absolute;
+    padding:20px;
     top: 10px;
     left: 20px;
 }
@@ -37,94 +27,255 @@
     font-family: "Kumar One", serif;
     font-weight: 400;
     font-style: normal;
-    color: #FFEA00;
-    text-shadow:  
-        0px 5px 4px #FF7700;
+    color: #FF00C8;
     font-size: 20px;
 }
 
-#loginPage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 35%;
-    position: fixed;
-    right: 150px;
-    top: 75px;
-    height: 80vh;
-    background: url('./icons/icon.png');
-    background-size: 250px;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: 0 0 10px #B700FF, 0 0 5px #B700FF; /* Neon glow */
-    border-radius: 50px;
-}
-
-.container {
-    padding: 30px;
-    border-radius: 12px;
-    width: 350px;
-    text-align: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    text-align: left;
-    font-weight: 600;
-}
-
-input {
-    width: 350px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    color: black;
-}
-
-#errorMessage {
-    display: none;
-    color: red;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-a {
-    color: #FF8000;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-button {
+#sign-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     width: 100%;
-    padding: 12px;
-    background: #281886;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    box-shadow: 0 0 10px #B700FF, 0px 5px 0px #B700FF; /* Neon glow */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: calc(100vh - 100px);
+    align-items: center;
 }
 
-button:hover {
-    background: #FF00FF;
+#lastdraw-container {
+    background-color: rgba(0, 2, 63, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(98, 0, 255, 0.5);
+    border: 1px solid rgba(255, 0, 234, 0.3);
+    width: 100%;
+    display: flex;
+    margin-bottom:60%;
+    flex-direction: column;
+    justify-content: center;
+            
+    }
+    .countdown-title {
+        color: #ff00ff;
+        font-size: 22px;
+        margin-bottom: 20px;
+        text-align: center;
+       
+    }
+    .timer-circles {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 15px;
+        margin-bottom: 30px;
+        justify-items: center;;
+    }
+    
+    .lastdraw-circle {
+        background-color: rgba(1, 0, 36, 0.8);
+            border: 2px solid #ff00ff;
+            color: #ff00ff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    }
+    
+    .timer-circle.flip {
+        transform: rotateY(180deg);
+    }
+    .prize-container {
+        background-color: rgba(172, 7, 128, 12);
+        padding: 10px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffcc00;
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+    }
+    #loginPage {
+        background-color: rgba(0, 0, 30, 0.8);
+        box-shadow: 0 0 10px #B700FF, 0 0 5px #B700FF; /* Neon glow */
+        border-radius: 50px;
+        padding: 30px;
+        width: 450px;
+        height: 550px;        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    label {
+        text-align: left;
+        font-weight: 600;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        color: black;
+    }
+
+    #errorMessage {
+        display: none;
+        color: red;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: #ff00ff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #281886;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        box-shadow: 0 0 10px #B700FF, 0px 5px 0px #B700FF; /* Neon glow */
+    }
+
+    button:hover {
+        background: #FF00FF;
+    }
+
+    .crtAcct {
+        display: block;
+        margin-top: 15px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+@media (max-width: 1200px) {
+    #sign-container {
+        padding: 15px;
+    }
 }
 
-.crtAcct {
-    display: block;
-    margin-top: 15px;
-    font-size: 14px;
-    margin-left: 75px;
+@media (max-width: 900px) {
+    #header-container {
+       
+        padding:10px;
+        
+    }
+    
+    #sign-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    #lastdraw-container, #loginPage {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    #header-container {
+        text-align: center;
+        position: static;
+        margin-bottom: 20px;
+    }
+    
+    #headtext {
+        margin-left: 0;
+    }
+}
+@media (max-width: 480px) {
+    #header-container {
+        padding: 15px;
+        text-align: left;
+    }
+    
+    #headtext {
+        font-size: 18px;
+    }
+    
+    #sign-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+    
+    #lastdraw-container {
+        
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .timer-circles {
+        gap: 10px;
+    }
+    
+    .lastdraw-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    #logintext {
+        font-size: 32px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+    
+    #loginPage {
+        padding: 20px;
+    }
+    
+    button {
+        padding: 10px;
+    }
+    
+    .countdown-title {
+        font-size: 16px;
+    }
+    
+    .prize-container {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .lastdraw-circle {
+        width: 45px;
+        height: 45px;
+        font-size: 0.9rem;
+    }
+    
+    #logintext {
+        font-size: 28px;
+    }
+    
+    form {
+        gap: 10px;
+    }
+    
+    input {
+        padding: 8px;
+    }
 }

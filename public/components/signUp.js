@@ -1,12 +1,14 @@
 import axios from 'axios';
 import '../styles/signup.css'
+import '../styles/common.css'
 
 export default function CreateAccount(root){
     root.innerHTML = `
-    <h1 id="headtextsignup">PANALOTTO</h1>
-    <img id="cards" src="./icons/cards.png">
-    <div class="container">
-        <div class="register-card">
+    <div id="header-container">
+        <h1 id="headtext">PANALOTTO</h1>
+    </div>
+    <div class="sign-up-container">
+          <div class="register-card">
             <h1>Register</h1>
             <form class="form-register">
                 <div class="form-group">
@@ -26,10 +28,16 @@ export default function CreateAccount(root){
                     <input type="password" id="confirm-password" placeholder="Enter password" required>
                 </div>
                 <button type="submit" class="signup-btn">Signup</button>
-                <button data-path=/signIn id="back-btn">Back</button>
+                <div class="login-link">
+                <span class="login-link">Already have an account? <a href="/signIn">Register</a></span>
+                </div>
             </form>
+          </div>
+        <div class="signUpbg-container">
+          <img src="./icons/signUpbg.png" alt="signupbg">
         </div>
-    </div>   
+    </div>
+
     `;
 
     const signUp = document.getElementById('signup');

@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(to bottom, black, #1a1a50, #3d3dbf);
+   
 }
 .game-container {
     display: flex;

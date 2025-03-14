@@ -1,33 +1,42 @@
-<<<<<<< HEAD
-=======
 import axios from 'axios';
-import '../styles/loginPage.css';
+import '../styles/loginPage.css'
+import '../styles/common.css'
 
->>>>>>> 7112d4e4aae1f1371c1130413f1c7cb52d431847
+
+
 export default function LogIn(root) {
     root.innerHTML = `
     <div id="header-container">
         <h1 id="headtext">PANALOTTO</h1>
     </div>
 
-    <div id="container">
-        <img id="icon" src="./icons/icon.png">
-        <div id="time">Connecting...</div>
-    </div>
-    
-    <div id="loginPage">
-        <form enctype="multipart/form-data" id="signin">
-            <h2 id="logintext">Login</h2>
-            <label for="username"><b>Username</b></label>
-            <input type="text" name="username" placeholder="Enter Username" required>
+    <div id="sign-container">
+        <div id="lastdraw-container">
+            <div class="countdown-title"> Next Draw: <span id="time"> Connecting...</div>
+            <div class="timer-circles">
+                <div class="lastdraw-circle" id="circle1"></div>
+                <div class="lastdraw-circle" id="circle2"></div>
+                <div class="lastdraw-circle" id="circle3"></div>
+                <div class="lastdraw-circle" id="circle4"></div>
+                <div class="lastdraw-circle" id="circle5"></div>
+                <div class="lastdraw-circle" id="circle6"></div>
+            </div>
+            <div class="prize-container">$ 50000</div>
+        </div>
+        <div id="loginPage">
+            <form enctype="multipart/form-data" id="signin">
+                <h2 id="logintext">Login</h2>
+                <label for="username"><b>Username</b></label>
+                <input type="text" name="username" placeholder="Enter Username" required>
 
-            <label for="password"><b>Password</b></label>
-            <input type="password" name="password" placeholder="Enter Password" required>
-            <span id="errorMessage" class="error-message"></span>
+                <label for="password"><b>Password</b></label>
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <span id="errorMessage" class="error-message"></span>
 
-            <button type="submit">Login</button>
-            <span class="crtAcct">Don't have an account? <a href="/signup">Register</a></span>
-        </form>
+                <button type="submit">Login</button>
+                <span class="crtAcct">Don't have an account? <a href="/signup">Register</a></span>
+            </form>
+        </div>
     </div>
     `;
 

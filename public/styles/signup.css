@@ -7,35 +7,16 @@ html, body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    background-color: #0a0a2a; /* Added dark background color for mobile view */
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, #0a0a2a 0%, #3a3ad7 100%);
-}
 
-#cards {
-    margin-left: 500px;
-}
-
-#headtextsignup {
-    font-family: "Kumar One", serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #FFEA00;
-    text-shadow:  
-        0px 5px 4px #FF7700;
-    font-size: 20px;
-    margin-left: 550px;
-}
-
-.container {
-    display: flex;
-    max-width: 1000px;
+.sign-up-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
     width: 100%;
-    justify-content: space-between;
+    gap: 40px;
     align-items: center;
 }
 
@@ -44,29 +25,25 @@ body {
     border-radius: 25px;
     border: 2px solid #9932CC;
     padding: 30px;
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
     box-shadow: 0 0 20px rgba(153, 50, 204, 0.3);
-    height: 550px;
-    position: fixed;
-    left: 200px;
-    top: 50%;
-    transform: translateY(-50%);
+    justify-self: end;
 }
 
 .register-card h1 {
     font-family: "Judson", serif;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 30px;
     color: #FF00FF;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .form-group label {
-    display: block;
     color: white;
     margin-bottom: 5px;
     font-size: 14px;
@@ -98,13 +75,9 @@ body {
 }
 
 .form-register {
+    display: flex;
+    flex-direction: column;
     gap: 15px;
-}
-
-#back-btn {
-    padding: 10px;
-    font-size: 14px;
-    margin-top: 5px;
 }
 
 .signup-btn {
@@ -126,97 +99,110 @@ body {
     box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
 }
 
-.lottery-section {
-    text-align: center;
-}
-
-.lottery-section h2 {
-    color: #FFD700;
-    font-size: 36px;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.lottery-tickets {
+.signUpbg-container {
     position: relative;
-    height: 220px;
-    width: 300px;
-}
-
-.ticket {
-    width: 140px;
-    height: 180px;
-    background-color: #2563EB;
-    border-radius: 10px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.ticket:nth-child(1) {
-    left: 0;
-    top: 20px;
-    transform: rotate(-10deg);
-}
-
-.ticket:nth-child(2) {
-    left: 80px;
-    z-index: 2;
-}
-
-.ticket:nth-child(3) {
-    right: 0;
-    top: 20px;
-    background-color: #7C3AED;
-    transform: rotate(10deg);
-}
-
-.ticket-number {
-    color: #FFD700;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.dots-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    padding: 0 10px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background-color: white;
-    border-radius: 50%;
-}
-
-.coins {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-.coin-stack {
-    width: 80px;
-    height: 80px;
-    background-color: #FFD700;
-    border-radius: 50%;
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    border: 3px solid #B8860B;
 }
 
-.dollar-sign {
-    color: black;
-    font-size: 40px;
-    font-weight: bold;
+.signUpbg-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Logo styling */
+.logo {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Register link at bottom */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: white;
+}
+
+.register-link a {
+    color: #FF00FF;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .sign-up-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0;
+        height:50%;
+        
+        justify-items: center;
+        align-items: center;
+        margin-top: 10%;
+    }
+    
+    .signUpbg-container {
+        display: none; /* Hide background image container */
+    }
+    
+    .register-card {
+        max-width: 400px;
+        justify-self: center;
+        border-radius: 20px;
+        margin: 0 auto; /* Center the card */
+    }
+    
+    .register-card h1 {
+        font-size: 1.9rem;
+        text-align: left;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+    }
+    
+    .form-group input {
+        font-size: 0.9rem;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .form-group input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .signup-btn {
+        font-size: 14px;
+        padding: 10px;
+        background-color: #FF00FF; /* Purple button as shown in image */
+        color: white;
+        border-radius: 50px;
+        margin-top: 10px;
+    }
+    
+    /* Adjust logo size */
+    .logo img {
+        max-width: 120px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Space for the "Don't have an account?" text */
+    .register-link {
+        margin-top: 15px;
+        font-size: 12px;
+    }
+    .login-link{
+        text-align: center;
+    }
+
+
 }
