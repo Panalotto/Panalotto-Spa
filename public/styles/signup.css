@@ -1,21 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap"');
 @import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap');
 
-<<<<<<< HEAD
-html, body {
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    background-color: #0a0a2a; /* Dark background */
-}
-
-.sign-up-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1200px;
-=======
 
 
 #cards {
@@ -45,11 +31,9 @@ html, body {
 .container {
     /* display: flex; */
     max-width: 1000px;
->>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
     width: 100%;
-    gap: 40px;
+    justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
 }
 
 .register-card {
@@ -57,12 +41,8 @@ html, body {
     border-radius: 25px;
     border: 2px solid #9932CC;
     padding: 30px;
-    width: 100%;
-    max-width: 450px;
+    width: 400px;
     box-shadow: 0 0 20px rgba(153, 50, 204, 0.3);
-<<<<<<< HEAD
-    justify-self: end;
-=======
     height: 550px;
     position: fixed;
     left: 200px;
@@ -72,7 +52,6 @@ html, body {
     align-items: center;
     justify-content: center;
     transform: translateY(-50%);
->>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
 }
 
 .register-card form {
@@ -85,17 +64,17 @@ html, body {
 .register-card h1 {
     font-family: "Judson", serif;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 40px;
     color: #FF00FF;
-    margin-bottom: 10px;
-    text-align: center; /* Centering the heading */
+    margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
+    display: block;
     color: white;
     margin-bottom: 5px;
     font-size: 14px;
@@ -107,29 +86,12 @@ html, body {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    background-color: rgba(231, 226, 226, 0.15); /* Slightly increased opacity */
+    background-color: rgba(231, 226, 226, 0.1);
     color: white;
     transition: all 0.3s ease;
     transform: translateY(0);
 }
 
-<<<<<<< HEAD
-.form-group input:hover,
-.form-group input:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 5px 15px rgba(153, 50, 204, 0.7);
-    transform: translateY(-3px);
-    outline: none;
-}
-
-.form-register {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-=======
->>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
 .signup-btn {
     background-color: white;
     color: black;
@@ -149,125 +111,146 @@ html, body {
     box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
 }
 
-.signUpbg-container {
+.lottery-section {
+    text-align: center;
+}
+
+.lottery-section h2 {
+    color: #FFD700;
+    font-size: 36px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.lottery-tickets {
     position: relative;
-    width: 100%;
-    height: 90%;
-    overflow: hidden;
+    height: 220px;
+    width: 300px;
+}
+
+.ticket {
+    width: 140px;
+    height: 180px;
+    background-color: #2563EB;
+    border-radius: 10px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ticket:nth-child(1) {
+    left: 0;
+    top: 20px;
+    transform: rotate(-10deg);
+}
+
+.ticket:nth-child(2) {
+    left: 80px;
+    z-index: 2;
+}
+
+.ticket:nth-child(3) {
+    right: 0;
+    top: 20px;
+    background-color: #7C3AED;
+    transform: rotate(10deg);
+}
+
+.ticket-number {
+    color: #FFD700;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.dots-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 0 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.coins {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.coin-stack {
+    width: 80px;
+    height: 80px;
+    background-color: #FFD700;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 3px solid #B8860B;
 }
 
-.signUpbg-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.dollar-sign {
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
 }
 
-/* Logo styling */
-.logo {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Register link */
-.register-link {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-    color: white;
-}
-
-.register-link a {
-    color: #FF00FF;
-    text-decoration: none;
-}
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-    .sign-up-container {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        height: auto;
-        justify-items: center;
-        align-items: center;
-        margin-top: 5%;
-    }
-    
-    .signUpbg-container {
-        display: none; /* Hide background */
-    }
-    
     .register-card {
-        max-width: 400px;
-        justify-self: center;
-        border-radius: 20px;
-        margin: 0 auto;
+        width: 90%;
+        max-width: 380px;
+        padding: 50px 20px 20px;
     }
-    
+
+    .lottery-image {
+        width: 130px;
+        top: -60px;
+    }
+
     .register-card h1 {
-        font-size: 1.8rem;
-        text-align: left; 
+        font-size: 24px;
     }
-    
-    .form-group label {
-        font-size: 0.9rem;
-    }
-    
+
     .form-group input {
-        font-size: 0.9rem;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.2); /* Increased contrast */
-        border: none;
-        border-radius: 5px;
+        font-size: 14px;
     }
-    
-    .form-group input::placeholder {
-        color: rgba(255, 255, 255, 0.7);
-    }
-    
+
     .signup-btn {
         font-size: 14px;
         padding: 10px;
-        background-color: #FF00FF;
-        color: white;
-        border-radius: 50px;
-        margin-top: 10px;
-    }
-    
-    /* Adjust logo size */
-    .logo img {
-        max-width: 120px;
-        margin: 0 auto;
-        display: block;
-    }
-    
-    /* Space for "Don't have an account?" */
-    .register-link {
-        margin-top: 15px;
-        font-size: 12px;
-    }
-    
-    .login-link {
-        text-align: center;
     }
 }
-
-/* Extra small screens (up to 425px) */
 @media screen and (max-width: 425px) {
     .register-card {
-        max-width: 350px;
-        padding: 18px;
+        width: 95%;
+        padding: 45px 15px 15px;
+    }
+
+    .lottery-image {
+        width: 120px;
+        top: -50px;
     }
 
     .register-card h1 {
-        font-size: 1.6rem;
+        font-size: 22px;
     }
 
     .form-group input {
-        font-size: 0.85rem;
-        padding: 8px;
+        font-size: 13px;
+        padding: 10px;
     }
 
     .signup-btn {

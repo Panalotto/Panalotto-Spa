@@ -6,28 +6,16 @@
 
 
 body {
-<<<<<<< HEAD
-=======
     background: linear-gradient(to right, #060B61 20%, #8A00E0 50%, #B700FF 80%);
 
 
->>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
     height: 100vh;
     display: flex;
     overflow: hidden;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-    background-image: url(C:\Users\levs0\OneDrive\Desktop\PortableGit\PANALOTTO\Panalotto-Spa\public\icons\panalottobg.jpg); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    opacity: 0.9; 
-=======
     overflow-x: hidden;
     overflow-y: hidden;
->>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
 }
 
 
@@ -39,7 +27,6 @@ body {
 
 
 
-<<<<<<< HEAD
 #logintext {
     font-family: "Judson", serif;
     font-weight: 700;
@@ -73,8 +60,6 @@ body {
 #container.dark-mode .home-container {
     background-color: #1e1e1e; /* Ensure all nested elements match the dark theme */
 }
-=======
->>>>>>> f536cab82f57622f7d8c56832aa5688989c1fce4
 
 #container #main{
     display: flex;

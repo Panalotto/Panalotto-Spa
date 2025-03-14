@@ -50,10 +50,15 @@ export default function mainpage(root) {
 
     
     connectWebSocket(timeElement, numberBoxes);
+
+    
+
+
+    
     
 
     // 🎯 Input Handling: Allow only 1-45 & No Duplicates
-const inputBoxes = document.querySelectorAll(".input-box");
+    const inputBoxes = document.querySelectorAll(".input-box");
 
 inputBoxes.forEach((box, index) => {
     box.addEventListener("input", (e) => {
