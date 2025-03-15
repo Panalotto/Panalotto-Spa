@@ -1,6 +1,7 @@
 import connectWebSocket from './connectWeb/connectCountdown.js';
 import fetchLatestResult from './connectWeb/connectLatestResult.js';
-
+import startTalpakPolling from './connectWeb/connectLatestTalpak.js';
+import fetchLatestTalpak from './connectWeb/connectLatestTalpak.js';
 export default async function LogIn(root) {
     root.innerHTML = `
         <div class="custom-body">
@@ -39,9 +40,18 @@ export default async function LogIn(root) {
 
     const timeElement = document.getElementById('time');
     const numberBoxes = document.querySelectorAll(".number-box");
+    const dollarcon = document.querySelector('.dollar-icon');
+
+
+if (!dollarcon) {
+    console.error("❌ ERROR: .dollar-icon not found in DOM!");
+}
+
+
 
     connectWebSocket(timeElement, numberBoxes);
     await fetchLatestResult(numberBoxes);
+    await fetchLatestTalpak(dollarcon);
 
 
     // 🔥 Login Form Handling

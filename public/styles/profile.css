@@ -1,322 +1,446 @@
-
-
-.logout-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #4B0082;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    border-bottom: 3px solid #FF00FF;
-}
-.main-container {
-    background: linear-gradient(to right, #060B61 20%, #8A00E0 50%, #B700FF 80%),
-        url(https://res.cloudinary.com/diwwqfwjb/image/upload/v1741885888/image_s4szy7.png);
-    background-repeat: no-repeat;
-    background-blend-mode: overlay;
-    background-size: cover;
-    width: 100vw; 
-    height: 100vh; 
-    display: grid;
-    justify-content: center;
-     background-attachment: fixed;
-    align-items: center;
-
-}
-
-
-.container {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-auto-rows: auto;
-    gap: 15px;
-    max-width: 900px;
-    margin: 80px auto 0;
-    position: relative;
-}
-
-/* GAME BOX */
-.game-box {
-    grid-column: span 1;
+.logoutBtn {
     border-radius: 10px;
-    border: 2px solid #00FFFF;
-    background: #000428;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    height: 220px;
-}
-
-.game-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.play-btn {
-    position: absolute;
-    bottom: 50px;
-    right: 30px;
-    background: #FF00FF;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* PROFILE CARD */
-.profile-card {
-    background: #9400D3;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    grid-column: span 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 180px;
-}
-
-.avatar {
-    width: 60px;
-    height: 60px;
-    background: #4B0082;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFD700;
-    font-size: 30px;
-}
-
-.profile-card h3 {
-    color: #FFD700;
-    margin: 10px 0 5px;
-}
-
-.profile-card p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-/* WALLET & HISTORY */
-.wallet-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-column: 1 / span 2;
-    gap: 15px;
-}
-
-.wallet, .history {
-    background: linear-gradient(135deg, #9400D3, #4B0082);
-    padding: 20px;
-    border-radius: 10px;
-    height: 100px; /* Set equal height for both */
-    display: flex;
-    flex-direction: column;
-}
-
-.wallet {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.wallet-info {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.wallet-info h4 {
-    color: #FFD700;
-    margin: 0 0 10px;
-    font-size: 22px;
-}
-
-.wallet-info p {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.wallet-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-}
-
-.cashin, .cashout {
-    background: rgba(255, 0, 255, 0.3);
-    border: 2px solid #FF00FF;
-    padding: 10px;
+    padding: 10px 25px;
     border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
+     color: white;
     font-weight: bold;
-    text-align: center;
-}
-
-.history {
-    text-align: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.history h4 {
-    color: white;
-    margin: 0;
-    font-size: 22px;
-}
-
-/* POPUP STYLES */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex; /* Dapat flex, hindi block */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    z-index: 1000;
-}
-
-
-.popup {
-    background: linear-gradient(135deg, #4B0082, #9400D3);
-    border: 2px solid #FF00FF;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.5);
-}
-.popup-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFD700;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.popup-content {
-    margin-bottom: 20px;
-}
-
-.popup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form-group label {
-    font-size: 16px;
-}
-
-.form-group input, .form-group select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #FF00FF;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.submit-btn {
-    background: #FF00FF;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* DRAW HISTORY POPUP STYLES */
-.draw-history-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.draw-history-column {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 15px;
-}
-
-.column-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #FFD700;
-    text-align: center;
-    border-bottom: 1px solid #FF00FF;
-    padding-bottom: 8px;
-}
-
-.draw-entry {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 5px;
-}
-
-.draw-date {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.draw-numbers {
-    display: flex;
-    gap: 5px;
-}
-
-.number-ball {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #FF00FF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.winner-ball {
-    background: #FFD700;
-    color: #000;
-}
+    font-size: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            position: absolute;
+            bottom: 10px;
+            width:200px;
+            right:5px;
+ }
+ 
+ .profile-container {
+     display: grid;
+     grid-template-columns: 2fr 1fr;
+     grid-auto-rows: auto;
+     gap: 15px;
+     width:90%;
+     max-width: 900px;
+     position: relative;
+     padding: 0 15px; 
+ }
+ 
+ 
+ .game-box {
+     grid-column: span 1;
+     border-radius: 10px;
+     border: 2px solid #00FFFF;
+     background: #000428;
+     text-align: center;
+     position: relative;
+     overflow: hidden;
+     height: 220px;
+ }
+ 
+ .game-box img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+ }
+ 
+ .play-btn {
+     background: linear-gradient(90deg, #4B0082, #FF00FF);
+     border: none;
+     padding: 10px 25px;
+     border-radius: 5px;
+             color: white;
+             font-weight: bold;
+             font-size: 16px;
+             cursor: pointer;
+             text-transform: uppercase;
+             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+             position: absolute;
+             bottom: 10px;
+             right: 0px;
+             width:200px;
+             transform: skewX(-15deg);
+ }
+ 
+ .profile-card {
+     background: #9400D3;
+     padding: 20px;
+     border-radius: 10px;
+     text-align: center;
+     grid-column: span 1;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+    
+ }
+ 
+ .avatar {
+     width: 60px;
+     height: 60px;
+     background: #4B0082;
+     border-radius: 50%;
+     margin-bottom: 10px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #FFD700;
+     font-size: 30px;
+ }
+ 
+ .profile-card h3 {
+     color: #FFD700;
+     margin: 10px 0 5px;
+ }
+ 
+ .profile-card p {
+     margin: 5px 0;
+     font-size: 14px;
+     word-break: break-word; 
+ }
+ 
+ .wallet-row {
+     display: grid;
+     grid-template-columns: 1.5fr 1fr 1.5fr;
+     grid-auto-rows: auto;
+      gap:10px;
+     width:90%;
+     max-width: 900px;
+     position: relative;
+     padding: 0 15px;
+ }
+ 
+ 
+ 
+ .wallet-info {
+     display: grid;
+     grid-template-columns: 1.5fr;
+     text-align: left;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     margin-top:10px;
+     background: linear-gradient(135deg, #9400D3, #4B0082);
+     padding:20px;
+     border-radius: 10px;
+     
+ }
+ 
+ .wallet-info h4 {
+     color: #FFD700;
+     margin: 0 0 10px;
+     font-size: 22px;
+ }
+ 
+ .wallet-info p {
+     font-size: 20px;
+     font-weight: bold;
+     margin: 0;
+ }
+ 
+ .wallet-actions {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+ 
+ .cashin, .cashout {
+     background: rgba(255, 0, 255, 0.3);
+     border: 2px solid #FF00FF;
+     padding: 10px;
+     border-radius: 5px;
+     color: white;
+     cursor: pointer;
+     font-size: 16px;
+     font-weight: bold;
+     text-align: center;
+ }
+ 
+ .history {
+     text-align: left;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     margin-top:10px;
+     background: linear-gradient(135deg, #9400D3, #4B0082);
+     padding:20px;
+     border-radius: 10px;
+ }
+ 
+ .history h4 {
+     color: white;
+     margin: 0;
+     font-size: 22px;
+     padding:10px;
+ }
+ 
+ /* POPUP STYLES */
+ .overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.7);
+     display: none;
+     justify-content: center;
+     align-items: center;
+     
+ }
+ 
+ .popup {
+     background: linear-gradient(135deg, #4B0082, #9400D3);
+     border: 2px solid #FF00FF;
+     border-radius: 10px;
+     width: 90%; 
+     max-width: 900px;
+     padding: 20px;
+     position: relative;
+     margin: 20px; 
+     max-height: 90vh; 
+     overflow-y: auto; 
+ }
+ 
+ .popup-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 20px;
+     border-bottom: 1px solid #FF00FF;
+     padding-bottom: 10px;
+ }
+ 
+ .popup-title {
+     font-size: 24px;
+     font-weight: bold;
+     color: #FFD700;
+ }
+ 
+ .close-btn {
+     background: none;
+     border: none;
+     color: white;
+     font-size: 24px;
+     cursor: pointer;
+ }
+ 
+ .popup-content {
+     margin-bottom: 20px;
+ }
+ 
+ .popup-form {
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+ }
+ 
+ .form-group {
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+ }
+ 
+ .form-group label {
+     font-size: 16px;
+ }
+ 
+ .form-group input, .form-group select {
+     padding: 10px;
+     border-radius: 5px;
+     border: 1px solid #FF00FF;
+     background-color: rgba(255, 255, 255, 0.1);
+     color: white;
+     width: 100%; 
+     box-sizing: border-box; 
+ }
+ 
+ .submit-btn {
+     background: #FF00FF;
+     border: none;
+     padding: 12px;
+     border-radius: 5px;
+     color: white;
+     font-weight: bold;
+     font-size: 16px;
+     cursor: pointer;
+     margin-top: 10px;
+ }
+ 
+ 
+ .draw-history-columns {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 20px;
+ }
+ 
+ .draw-history-column {
+     background: rgba(0, 0, 0, 0.2);
+     border-radius: 8px;
+     padding: 15px;
+ }
+ 
+ .column-title {
+     font-size: 18px;
+     font-weight: bold;
+     margin-bottom: 15px;
+     color: #FFD700;
+     text-align: center;
+     border-bottom: 1px solid #FF00FF;
+     padding-bottom: 8px;
+ }
+ 
+ .draw-entry {
+     display: flex;
+     justify-content: space-between;
+     padding: 10px;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+     margin-bottom: 5px;
+ }
+ 
+ .draw-date {
+     font-size: 14px;
+     color: #ccc;
+ }
+ 
+ .draw-numbers {
+     display: flex;
+     gap: 5px;
+ }
+ 
+ .number-ball {
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     background: #FF00FF;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-weight: bold;
+     font-size: 14px;
+ }
+ 
+ .winner-ball {
+     background: #FFD700;
+     color: #000;
+ }
+ 
+ 
+ @media (max-width: 768px) {
+     .profile-container {
+         grid-template-columns: 1fr;
+         margin-top: 100px;
+     }
+     
+     .profile-card {
+         grid-column: span 1;
+         height: auto;
+         padding: 15px;
+     }
+     
+     .game-box {
+         grid-column: span 1;
+         height: 180px;
+     }
+     
+     .wallet-row {
+         grid-template-columns: 1fr;
+         grid-column: 1;
+     }
+     
+     .wallet, .history {
+         height: auto;
+         min-height: 80px;
+     }
+     
+     .wallet {
+         grid-template-columns: 1fr;
+         gap: 15px;
+     }
+     
+     .wallet-info, .wallet-actions {
+         text-align: center;
+     }
+     
+     .wallet-actions {
+         flex-direction: row;
+         justify-content: space-around;
+     }
+     
+     .cashin, .cashout {
+         width: 45%;
+     }
+     
+     .draw-history-columns {
+         grid-template-columns: 1fr;
+     }
+     
+     .logout-btn {
+         top: 10px;
+         right: 10px;
+         padding: 8px 15px;
+         font-size: 14px;
+     }
+     
+     .popup {
+         padding: 15px;
+         width: 95%;
+         margin: 10px;
+     }
+     
+     .popup-title {
+         font-size: 20px;
+     }
+     
+     .draw-entry {
+         flex-direction: column;
+         gap: 10px;
+         align-items: center;
+     }
+     
+     .draw-date {
+         text-align: center;
+     }
+ }
+ 
+ @media (max-width: 480px) {
+     #headtext {
+         font-size: 28px;
+     }
+     
+     .wallet-info h4 {
+         font-size: 18px;
+     }
+     
+     .wallet-info p {
+         font-size: 20px;
+     }
+     
+     .history h4 {
+         font-size: 18px;
+     }
+     
+     .avatar {
+         width: 50px;
+         height: 50px;
+         font-size: 24px;
+     }
+     
+     .profile-card h3 {
+         font-size: 16px;
+     }
+     
+     .profile-card p {
+         font-size: 12px;
+     }
+     
+     .play-btn {
+         bottom: 20px;
+         right: 20px;
+         padding: 8px 20px;
+         font-size: 14px;
+     }
+     
+     .number-ball {
+         width: 25px;
+         height: 25px;
+         font-size: 12px;
+     }
+ }
