@@ -76,7 +76,6 @@ export default async function mainpage(root) {
         connectWebSocket(timeElement, numberBoxes);
         await fetchLatestResult(numberBoxes);
 
-        // Hintayin ang rendering bago i-fetch ang latest talpak
         setTimeout(() => {
             fetchLatestTalpak(dollarcon);
         }, 500);
@@ -85,11 +84,11 @@ export default async function mainpage(root) {
 
         inputBoxes.forEach((box, index) => {
             box.addEventListener("input", (e) => {
-                let value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+                let value = e.target.value.replace(/\D/g, ''); 
 
                 if (value !== "") {
                     let num = parseInt(value, 10);
-                    num = Math.max(1, Math.min(45, num)); // Limit sa 1-45
+                    num = Math.max(1, Math.min(45, num)); 
 
                     let existingNumbers = Array.from(inputBoxes)
                         .filter(b => b !== e.target)
