@@ -15,7 +15,7 @@ export default function connectWebSocket(timeElement, numberBoxes) {
             if (data.event === "countdownUpdate") {
                 timeElement.innerText = `Next Draw: ${data.countdown} seconds`;
             } else if (data.event === "roundFinished") {
-                timeElement.innerText = "";
+                timeElement.innerText = "Winning Result";
 
                 let winningNumbers = data.result;
                 if (typeof winningNumbers === "string") {

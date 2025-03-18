@@ -34,7 +34,7 @@ export default async function mainpage(root) {
             </div>
             <div class="input-section">
                 <form enctype="multipart/form-data" id="talpak">
-                    <div class="input-title">Enter number</div>
+                    <div class="input-title">Bet your Lucky Numbers</div>
                     <div class="input-boxes">
                     ${Array(6).fill('<input type="text" class="input-box" maxlength="2" pattern="[0-9]{1,2}">').join('')}
                     </div>
@@ -46,7 +46,7 @@ export default async function mainpage(root) {
                 <div class="info-section">
                     <div class="info-left">
                         <div class="info-box bet-box">
-                            <div class="info-label">Bet</div>
+                            <div class="info-label">Bet for only $100 </div>
                         </div>
                         <div class="info-box balance-box">
                             <div class="info-label">Balance: ${data.balance}</div>

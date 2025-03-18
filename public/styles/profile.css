@@ -444,3 +444,93 @@
          font-size: 12px;
      }
  }
+
+ @media (max-width: 768px) {
+    .profile-container {
+        grid-template-columns: 1fr;
+        width:45%;
+        gap:5px;
+        
+    }
+    
+    .profile-card {
+        flex-direction: row;
+        height:80px;
+        gap:10px;
+    }
+    .profile-card h3{
+        font-size: 1rem;
+        margin:0px;
+    }
+    .profile-card p{
+        font-size: 0.8rem;
+    }
+    
+    .game-box {
+        height: 150px;
+    }
+    .game-box img{
+        width: 100%;
+    }
+    .avatar{
+        width: 40px;
+        height:40px; 
+    }
+    .wallet-row {
+        grid-template-columns: 1fr;
+        gap:10px;
+        width: 45%;
+    }
+    .wallet-info{
+        height:80px;
+        margin-top:5px;
+    }
+    .wallet-info h4{
+        font-size: 1.4rem;
+    }
+    .wallet-info p{
+        font-size: 1.2rem;
+    }
+    
+    .wallet-actions {
+        flex-direction: row;
+        justify-content:center;
+        gap:5px;
+        height:50px;
+    }
+    .history{
+        height:70px;
+    }
+    .history h4{
+        font-size: 1.1rem;
+    }
+   
+    .draw-history-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .logoutBtn {
+        font-size: 1rem;
+    }
+    
+    .popup {
+        padding: 15px;
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .popup-title {
+        font-size: 20px;
+    }
+    
+    .draw-entry {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .draw-date {
+        text-align: center;
+    }
+}
+

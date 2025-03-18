@@ -1,6 +1,5 @@
 import connectWebSocket from './connectWeb/connectCountdown.js';
 import fetchLatestResult from './connectWeb/connectLatestResult.js';
-import startTalpakPolling from './connectWeb/connectLatestTalpak.js';
 import fetchLatestTalpak from './connectWeb/connectLatestTalpak.js';
 export default async function LogIn(root) {
     root.innerHTML = `

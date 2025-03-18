@@ -195,15 +195,37 @@ export default function profile(root) {
             document.getElementById("closeCashoutBtn").addEventListener("click", () => {
                 document.getElementById("cashoutOverlay").style.display = "none";
             });
+
+            // Logout Functionality
+            document.getElementById("logout-btn").addEventListener("click", () => {
+                console.log("Logout button clicked");
+            
+                // Remove token & user_id from localStorage
+                localStorage.removeItem("token");
+                localStorage.removeItem("user_id");
+            
+                console.log("Token and User ID removed");
+            
+                // Redirect to login page
+                window.location.href = "/signIn";
+            
+                // Prevent going back
+                setTimeout(() => {
+                    window.history.pushState(null, "", "/signIn");
+                }, 500);
+            });
+            
+            
+
             
 
             // Cash In form submission
             const cashinForm = document.getElementById('cashinForm');
-            const errorMessage = document.getElementById('errorMessage');
+            // const errorMessage = document.getElementById('errorMessage');
 
             cashinForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                errorMessage.style.display = 'none';
+                // errorMessage.style.display = 'none';
 
                 const amount = document.getElementById("cashinAmount").value;
                 const payload = { username: data.username, amount };
@@ -290,3 +312,7 @@ export default function profile(root) {
         root.innerHTML = "<p>Failed to load profile.</p>";
     });
 }
+
+
+
+

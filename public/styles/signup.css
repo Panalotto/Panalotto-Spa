@@ -48,9 +48,9 @@
     border-radius: 25px;
     border: 2px solid #9932CC;
     padding: 30px;
-    width: 400px;
+    width: 450px;
     box-shadow: 0 0 20px rgba(153, 50, 204, 0.3);
-    height: 510px;
+    height: 650px;
     position: fixed;
     left: 200px;
     top: 50%;
@@ -74,6 +74,7 @@
     font-family: "Judson", serif;
     font-weight: 700;
     font-size: 40px;
+    margin-right: 200px;
     color: #FF00FF;
     margin-bottom: 20px;
 }
@@ -94,6 +95,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    width: 350px;
     background-color: rgba(231, 226, 226, 0.1);
     color: white;
     transition: all 0.3s ease;
@@ -106,7 +108,7 @@
     border: none;
     border-radius: 50px;
     padding: 10px;
-    width: 100%;
+    width: 350px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
@@ -119,108 +121,16 @@
     box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
 }
 
-.lottery-section {
-    text-align: center;
-}
-
-.lottery-section h2 {
-    color: #FFD700;
-    font-size: 36px;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.lottery-tickets {
-    position: relative;
-    height: 220px;
-    width: 300px;
-}
-
-.ticket {
-    width: 140px;
-    height: 180px;
-    background-color: #2563EB;
-    border-radius: 10px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.ticket:nth-child(1) {
-    left: 0;
-    top: 20px;
-    transform: rotate(-10deg);
-}
-
-.ticket:nth-child(2) {
-    left: 80px;
-    z-index: 2;
-}
-
-.ticket:nth-child(3) {
-    right: 0;
-    top: 20px;
-    background-color: #7C3AED;
-    transform: rotate(10deg);
-}
-
-.ticket-number {
-    color: #FFD700;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.dots-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    padding: 0 10px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background-color: white;
-    border-radius: 50%;
-}
-
-.coins {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-.coin-stack {
-    width: 80px;
-    height: 80px;
-    background-color: #FFD700;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    border: 3px solid #B8860B;
-}
-
-.dollar-sign {
-    color: black;
-    font-size: 40px;
-    font-weight: bold;
-}
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .register-card {
-        width: 90%;
+        width: 90%; 
         max-width: 380px;
         padding: 50px 20px 20px;
+        position: absolute;
+        left: 30px;
+        height: 550px;
     }
 
     .lottery-image {
@@ -229,7 +139,8 @@
     }
 
     .register-card h1 {
-        font-size: 24px;
+        font-size: 35px;
+        margin-right: 230px;
     }
 
     .form-group input {
@@ -240,11 +151,17 @@
         font-size: 14px;
         padding: 10px;
     }
+
+    #imgsignup {
+        display: none;
+    }
 }
 @media screen and (max-width: 425px) {
     .register-card {
         width: 95%;
         padding: 45px 15px 15px;
+        position: absolute;
+        left: 30px;
     }
 
     .lottery-image {
@@ -253,7 +170,7 @@
     }
 
     .register-card h1 {
-        font-size: 22px;
+        font-size: 40px;
     }
 
     .form-group input {
@@ -264,5 +181,9 @@
     .signup-btn {
         font-size: 13px;
         padding: 9px;
+    }
+
+    #imgsignup {
+        display: none;
     }
 }
