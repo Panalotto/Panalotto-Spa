@@ -186,21 +186,15 @@ button:hover {
 
 .crtAcct {
     display: block;
-    margin-top: 15px;
     font-size: 14px;
-    margin-left: 75px;
+    margin-left: 60px;
+    margin-bottom: 60px;
 }
 
 /* Responsive Fixes */
-@media (max-width: 1200px) {
-    #loginPage {
-        width: 50%;
-        right: 10px;
-        height: 70vh;
-    }
-}
 
 @media (max-width: 900px) {
+
     #header-container {
         padding: 10px;
     }
@@ -214,52 +208,79 @@ button:hover {
         height: auto;
     }
     
-    #header-container {
-        text-align: center;
-        position: static;
-        margin-bottom: 20px;
-    }
-    
-    #headtext {
-        margin-left: 0;
-    }
-}
+   
 
 @media (max-width: 480px) {
-    #header-container {
-        padding: 15px;
-        text-align: left;
+    .custom-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
-    #headtext {
-        font-size: 18px;
+
+    #time {
+        font-size: 15px;
+        position: absolute;
+        top: 10px;
+        left: 40px;
     }
-    
+
+    .form-login {
+        position: absolute;
+        bottom: -30px;
+    }
+
+    input {
+        height: 35px;
+    }
+
+   .ball-container{
+        width: 100%;
+        display: flex;
+        position: absolute;
+        left: 213px;
+        top: 100px;
+        padding: 20px;
+    }
+        
     #loginPage {
         padding: 20px;
         width: 100%;
+        margin-top: 140px;
+        max-width: 200%;
+        height: 360px;
     }
-    
+
+    .crtAcct {
+        padding-bottom: 25px;
+    }
+
+    * {
+        font-size: 15px;
+    }
+
     button {
-        padding: 10px;
+        padding: 5px;
     }
     
-    .prize-box {
+    #prize-box {
         font-size: 18px;
-        width: 150px;
+        width: 200px;
+        position: absolute;
+        left: 210px;
+        top: 185px;
+        height: 50px;
     }
+
+    #header-container {
+        margin-left: 113px;
+    }
+
+    #logintext {
+        font-size: 30px;
+        position: absolute;
+        bottom: 320px;
+    }
+
 }
 
-@media (max-width: 360px) {
-    #logintext {
-        font-size: 28px;
-    }
-    
-    form {
-        gap: 10px;
-    }
-    
-    input {
-        padding: 8px;
-    }
 }
