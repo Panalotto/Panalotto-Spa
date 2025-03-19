@@ -255,7 +255,7 @@
 
         .draw-section{
             width: 100%;
-            position: fixed;
+            position: absolute;
             top: 3%;
             left: 0%;
             height: 23%;
@@ -451,6 +451,110 @@
 
     /* Desktop (900px and above) */
     @media screen and (min-width: 900px) {
+
+        .containermainpage{
+            width: 100%;
+            top: 10%;
+                
+        }
+
+        .group-bar{
+            width: 100%;
+            position: fixed;
+            top: 0%;
+        }
+
+ 
+
+        .avatar img{
+            width: 5rem;
+            height: 5rem;
+        }
+
+        .draw-section{
+            width: 80%;
+            position: fixed;
+            top: 3%;
+            left: 10%;
+            height: 23%;
+        }
+
+        .input-section{
+            width: 80%;
+            position: fixed;
+            top: 35%;
+            left: 10%;
+            height: 75%;
+        
+        }
+        
+        .draw-boxes{
+            height: 70px;
+            width: auto;
+            
+        }
+
+        .draw-box{
+            font-size: x-large;
+            
+            width: 20%;
+            margin: 1%;
+            height: 100%;
+        }
+
+        .input-boxes{
+            height: 70%;
+        }
+        
+
+        .input-box{
+            height: 70px;
+            margin: 2%;
+            padding: 0%;
+            width: 20%;
+            font-size: x-large;
+          
+        
+            
+        }
+
+        .info-section{
+            width: 80%;
+            position: fixed;
+            top: 75%;
+            height: 30%;
+        }
+
+        
+        .bet-box, .balance-box{
+            
+            width: 80%;
+        }
+
+        .info-left{
+            width: 50%;
+            align-items: center;
+        }
+
+        .prize-box{
+            width: 90%;
+            height: 69%;
+        }
+
+        .buttons{
+            width: 80%;
+            top: 63%;
+            position: fixed;
+            
+        }
+
+        .btn{
+            width: 48%;
+            font-size: 1rem;
+     
+
+        }
+
 
     }
         
