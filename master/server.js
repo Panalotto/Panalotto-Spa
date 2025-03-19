@@ -5,6 +5,10 @@ import path from "path";
 import { setupWebSocket } from "./routesMaster/v1/countDown.js";
 
 const publicPath = "C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/public";
+
+
+
+
 const port = 9000;
 
 const app = express();

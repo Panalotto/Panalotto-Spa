@@ -519,9 +519,9 @@
         }
 
         .info-section{
-            width: 80%;
-            position: fixed;
-            top: 75%;
+            width: 100%;
+            position: absolute;
+            top: 55%;
             height: 30%;
         }
 

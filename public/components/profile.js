@@ -22,12 +22,14 @@ export default function profile(root) {
         
         <div class="profile-card">
             <div class="avatar">👤</div>
+            <div class="info">
             <h3>${data.username}</h3>
             <p>${data.email}</p>
+            </div>
 
         </div>
-    </div> 
-    <div class="wallet-row">
+    
+    
         <div class="wallet-info">
            <h4>Virtual Wallet</h4>
             <p>${data.balance}</p>
@@ -36,11 +38,8 @@ export default function profile(root) {
             <button class="cashin" id="cashinBtn">Cash in</button>
             <button class="cashout" id="cashoutBtn">Cash out</button>
         </div>
-        <div class="history" id="historyBtn">
-            <h4>Draw history</h4>
-            </div>
-        </div>
-    </div>
+        
+    </div> 
     <div class="logoutBtn">
         <button id="logout-btn">Logout</button>
     </div>
