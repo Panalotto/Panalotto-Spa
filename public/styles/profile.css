@@ -360,9 +360,24 @@
     
     }
 
+/* FOR popup cashin cash out */
+    .popup{
 
-    
-    
+        top: 15%;
+
+    }
+
+
+    .close-btn{
+        padding: 0%;
+        width: 10%;
+        box-shadow: none;
+    }
+
+
+
+
+
  }
  
  /* Tablet (600px to 899px) */
