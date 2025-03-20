@@ -1,18 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
 
-    body {
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    min-width: 100vw;  /* Ensures it covers the full screen width */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background: url('../icons/background.jpg') no-repeat center center fixed;
-    background-size: cover;  /* Ensures full coverage without distortion */
-    }
-
     .containermainpage {
     width: 100%;
     
@@ -33,13 +21,6 @@
     width: 100%;
     box-sizing: border-box; /* Ensures padding doesn't exceed width */
     /* Keeps it above other elements */
-    }
-
-    #headtext {
-    font-size: 14px;
-    font-weight: lighter;
-    color: #ff4ef5; /* Pinkish text */
-    margin-left: 10px;
     }
 
     .avatar {

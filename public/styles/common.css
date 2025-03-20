@@ -21,10 +21,7 @@ body {
     max-width: 900px;
     height: auto;
     padding: 20px;
-    
-
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #container #main {
@@ -34,12 +31,6 @@ body {
     text-align: center;
 }
 
-#headtext {
-    font-size: 14px;
-    font-weight: lighter;
-    color: #ff4ef5; /* Pinkish text */
-    margin-left: 10px;
-}
 /* Mobile (below 600px) */
 @media screen and (max-width: 599px) {
     body {
