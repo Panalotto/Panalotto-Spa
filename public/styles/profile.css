@@ -1,383 +1,383 @@
 .logoutBtn {
+border-radius: 10px;
+padding: 10px 25px;
+border-radius: 5px;
+    color: white;
+font-weight: bold;
+font-size: 20px;
+        cursor: pointer;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 10px;
+        width:200px;
+        right:5px;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: auto;
+    gap: 15px;
+    width:90%;
+    max-width: 900px;
+    position: relative;
+    padding: 0 15px; 
+}
+
+
+.game-box {
+    grid-column: span 1;
     border-radius: 10px;
+    border: 2px solid #00FFFF;
+    background: #000428;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.game-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.play-btn {
+    background: linear-gradient(90deg, #4B0082, #FF00FF);
+    border: none;
     padding: 10px 25px;
     border-radius: 5px;
-     color: white;
-    font-weight: bold;
-    font-size: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
             cursor: pointer;
             text-transform: uppercase;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
             position: absolute;
             bottom: 10px;
+            right: 0px;
             width:200px;
-            right:5px;
- }
- 
- .profile-container {
-     display: grid;
-     grid-template-columns: 2fr 1fr;
-     grid-auto-rows: auto;
-     gap: 15px;
-     width:90%;
-     max-width: 900px;
-     position: relative;
-     padding: 0 15px; 
- }
- 
- 
- .game-box {
-     grid-column: span 1;
-     border-radius: 10px;
-     border: 2px solid #00FFFF;
-     background: #000428;
-     text-align: center;
-     position: relative;
-     overflow: hidden;
-     height: 220px;
- }
- 
- .game-box img {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     display: block;
- }
- 
- .play-btn {
-     background: linear-gradient(90deg, #4B0082, #FF00FF);
-     border: none;
-     padding: 10px 25px;
-     border-radius: 5px;
-             color: white;
-             font-weight: bold;
-             font-size: 16px;
-             cursor: pointer;
-             text-transform: uppercase;
-             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-             position: absolute;
-             bottom: 10px;
-             right: 0px;
-             width:200px;
-             transform: skewX(-15deg);
- }
- 
- .profile-card {
-     background: #9400D3;
-     border-radius: 10px;
-     text-align: center;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
+            transform: skewX(-15deg);
+}
+
+.profile-card {
+    background: #9400D3;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background: #4B0082;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFD700;
+    font-size: 30px;
+}
+
+.profile-card h3 {
+    color: #FFD700;
+    margin: 10px 0 5px;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    word-break: break-word; 
+}
+
+
+
+.wallet-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    grid-auto-rows: auto;
+    gap:10px;
+    width:90%;
+    max-width: 900px;
+    position: relative;
+    padding: 0 15px;
+}
+
+
+
+.wallet-info {
+    display: grid;
+    grid-template-columns: 1.5fr;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:10px;
+    background: linear-gradient(135deg, #9400D3, #4B0082);
+    padding:20px;
+    border-radius: 10px;
     
- }
- 
- .avatar {
-     width: 60px;
-     height: 60px;
-     background: #4B0082;
-     border-radius: 50%;
-     margin-bottom: 10px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     color: #FFD700;
-     font-size: 30px;
- }
- 
- .profile-card h3 {
-     color: #FFD700;
-     margin: 10px 0 5px;
- }
- 
- .profile-card p {
-     margin: 5px 0;
-     font-size: 14px;
-     word-break: break-word; 
- }
+}
 
+.wallet-info h4 {
+    color: #FFD700;
+    margin: 0 0 10px;
+    font-size: 22px;
+}
 
- 
- .wallet-row {
-     display: grid;
-     grid-template-columns: 1.5fr 1fr 1.5fr;
-     grid-auto-rows: auto;
-      gap:10px;
-     width:90%;
-     max-width: 900px;
-     position: relative;
-     padding: 0 15px;
- }
- 
- 
- 
- .wallet-info {
-     display: grid;
-     grid-template-columns: 1.5fr;
-     text-align: left;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     margin-top:10px;
-     background: linear-gradient(135deg, #9400D3, #4B0082);
-     padding:20px;
-     border-radius: 10px;
-     
- }
- 
- .wallet-info h4 {
-     color: #FFD700;
-     margin: 0 0 10px;
-     font-size: 22px;
- }
- 
- .wallet-info p {
-     font-size: 20px;
-     font-weight: bold;
-     margin: 0;
- }
- 
- .wallet-actions {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
- }
- 
- .cashin, .cashout {
-     background: rgba(255, 0, 255, 0.3);
-     border: 2px solid #FF00FF;
-     padding: 10px;
-     border-radius: 5px;
-     color: white;
-     cursor: pointer;
-     font-size: 16px;
-     font-weight: bold;
-     text-align: center;
- }
- 
- .history {
-     text-align: left;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     margin-top:10px;
-     background: linear-gradient(135deg, #9400D3, #4B0082);
-     padding:20px;
-     border-radius: 10px;
- }
- 
- .history h4 {
-     color: white;
-     margin: 0;
-     font-size: 22px;
-     padding:10px;
- }
- 
- /* POPUP STYLES */
- .overlay {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(0, 0, 0, 0.7);
-     display: none;
-     justify-content: center;
-     align-items: center;
-     
- }
- 
- .popup {
-     background: linear-gradient(135deg, #4B0082, #9400D3);
-     border: 2px solid #FF00FF;
-     border-radius: 10px;
-     width: 90%; 
-     max-width: 900px;
-     padding: 20px;
-     position: relative;
-     margin: 20px; 
-     max-height: 90vh; 
-     overflow-y: auto; 
- }
- 
- .popup-header {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     margin-bottom: 20px;
-     border-bottom: 1px solid #FF00FF;
-     padding-bottom: 10px;
- }
- 
- .popup-title {
-     font-size: 24px;
-     font-weight: bold;
-     color: #FFD700;
- }
- 
- .close-btn {
-     background: none;
-     border: none;
-     color: white;
-     font-size: 24px;
-     cursor: pointer;
- }
- 
- .popup-content {
-     margin-bottom: 20px;
- }
- 
- .popup-form {
-     display: flex;
-     flex-direction: column;
-     gap: 15px;
- }
- 
- .formgroup {
-     display: flex;
-     flex-direction: column;
-     gap: 5px;
- }
- 
- .formgroup label {
-     font-size: 16px;
- }
- 
- .formgroup input, .form-group select {
-     padding: 10px;
-     border-radius: 5px;
-     border: 1px solid #FF00FF;
-     background-color: rgba(255, 255, 255, 0.1);
-     color: white;
-     width: 100%; 
-     box-sizing: border-box; 
- }
- 
- .submit-btn {
-     background: #FF00FF;
-     border: none;
-     padding: 12px;
-     border-radius: 5px;
-     color: white;
-     font-weight: bold;
-     font-size: 16px;
-     cursor: pointer;
-     margin-top: 10px;
- }
- 
- 
- @media screen and (max-width: 599px) {
+.wallet-info p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
 
-    .profile-container{
-        
-        position: fixed;
-        top: 10%;
-        height: 80%;
-        display: block;
+.wallet-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.cashin, .cashout {
+    background: rgba(255, 0, 255, 0.3);
+    border: 2px solid #FF00FF;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
 
-    }
+.history {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:10px;
+    background: linear-gradient(135deg, #9400D3, #4B0082);
+    padding:20px;
+    border-radius: 10px;
+}
 
-    .wallet-row{
-        background-color: #FFD700;
-        position: absolute;
-        top: 50%;
-    }
+.history h4 {
+    color: white;
+    margin: 0;
+    font-size: 22px;
+    padding:10px;
+}
 
-    .game-box{
-
-        width: 100%;
-        margin: 2%;
-        height: auto;
-
-    }
-
-    .profile-card{
-        width: 100%;
-        height: 20%;
-        margin: 1%;
-        flex-direction: row;
-        justify-content: center;
-        
+/* POPUP STYLES */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
     
-    }
+}
+
+.popup {
+    background: linear-gradient(135deg, #4B0082, #9400D3);
+    border: 2px solid #FF00FF;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 900px;
+    padding: 20px;
+    position: relative;
+    margin: 20px; 
+    max-height: 90vh; 
+    overflow-y: auto; 
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #FF00FF;
+    padding-bottom: 10px;
+}
+
+.popup-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.popup-content {
+    margin-bottom: 20px;
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formgroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formgroup label {
+    font-size: 16px;
+}
+
+.formgroup input, .form-group select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #FF00FF;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.submit-btn {
+    background: #FF00FF;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+@media screen and (max-width: 599px) {
+
+.profile-container{
+    
+    position: fixed;
+    top: 10%;
+    height: 80%;
+    display: block;
+
+
+}
+
+.wallet-row{
+    background-color: #FFD700;
+    position: absolute;
+    top: 50%;
+}
+
+.game-box{
+
+    width: 100%;
+    margin: 2%;
+    height: auto;
+
+}
+
+.profile-card{
+    width: 100%;
+    height: 20%;
+    margin: 1%;
+    flex-direction: row;
+    justify-content: center;
+    
+
+}
 
 /* FOR popup cashin cash out */
-    .popup{
+.popup{
 
-        top: 15%;
+    top: 15%;
 
-    }
-
-
-    .close-btn{
-        padding: 0%;
-        width: 10%;
-        box-shadow: none;
-    }
+}
 
 
+.close-btn{
+    padding: 0%;
+    width: 10%;
+    box-shadow: none;
+}
 
 
 
 
 
- }
- 
- /* Tablet (600px to 899px) */
- @media screen and (min-width: 600px) and (max-width: 899px) {
-
-    
-
-    .popup{
 
 
-        width: 50%;
-        top: 15%;
-        left: 20%;
+}
 
-    }
-
-
-    .close-btn{
-        padding: 0%;
-        width: 10%;
-        box-shadow: none;
-    }
-
-
-  
-    
- }
- 
- /* Desktop (900px and above) */
- @media screen and (min-width: 900px) {
-    
+/* Tablet (600px to 899px) */
+@media screen and (min-width: 600px) and (max-width: 899px) {
 
 
 
-    .popup{
-        position: fixed;
-        width: 40%;
-        top: 25%;
-        left: 29%;
+.popup{
 
 
-    }
+    width: 50%;
+    top: 15%;
+    left: 20%;
+
+}
 
 
-    .close-btn{
-        padding: 0%;
-        width: 10%;
-        box-shadow: none;
-    }
+.close-btn{
+    padding: 0%;
+    width: 10%;
+    box-shadow: none;
+}
 
 
-    
 
-    
- }
- 
- 
- 
- 
+
+}
+
+/* Desktop (900px and above) */
+@media screen and (min-width: 900px) {
+
+
+
+
+.popup{
+    position: fixed;
+    width: 40%;
+    top: 25%;
+    left: 29%;
+
+
+}
+
+
+.close-btn{
+    padding: 0%;
+    width: 10%;
+    box-shadow: none;
+}
+
+
+
+
+
+}
+
+
+

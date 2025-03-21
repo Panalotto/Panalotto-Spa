@@ -1,3 +1,4 @@
+
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
@@ -134,6 +135,7 @@
 }
 
 label {
+    color: white;
     text-align: left;
     font-weight: 600;
 }
@@ -291,17 +293,7 @@ button:hover {
         margin-top: 0%;  
     }
 
-    .number-box{
-           }
-
-    #time{
-        
-    }
     
-    
-    #logintext{
-        
-    }
     input{
         width: auto;
     }

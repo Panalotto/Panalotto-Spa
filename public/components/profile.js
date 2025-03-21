@@ -32,7 +32,7 @@ export default function profile(root) {
     
         <div class="wallet-info">
            <h4>Virtual Wallet</h4>
-            <p>${data.balance}</p>
+            <p>₱: ${data.balance}</p>
         </div>
         <div class="wallet-actions">
             <button class="cashin" id="cashinBtn">Cash in</button>
