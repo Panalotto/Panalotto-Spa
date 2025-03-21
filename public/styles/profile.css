@@ -188,7 +188,7 @@ font-size: 20px;
     
 }
 
-.popup {
+.popup-cashin ,.popup-cashout {
     background: linear-gradient(135deg, #4B0082, #9400D3);
     border: 2px solid #FF00FF;
     border-radius: 10px;
@@ -201,12 +201,14 @@ font-size: 20px;
     overflow-y: auto; 
 }
 
+
+
 .popup-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    border-bottom: 1px solid #FF00FF;
+    border-bottom: 3px solid #FF00FF;
     padding-bottom: 10px;
 }
 
@@ -304,25 +306,36 @@ font-size: 20px;
 }
 
 /* FOR popup cashin cash out */
-.popup{
-
-    top: 15%;
+.popup-cashin , .popup-cashout{
+    width: 100%;
+    margin:0px;
+    border-radius: 0px;
+    height: 100%;
+    max-height: none;
 
 }
-
-
 .close-btn{
     padding: 0%;
     width: 10%;
     box-shadow: none;
 }
 
-
-
-
-
-
-
+.popup-form{
+    margin-top:20%;
+}
+.popup-header{
+    margin-top:20%;
+}
+.submit-btn{
+    margin-top:10%;
+}
+.formgroup label{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.formgroup input{
+    font-size: 1.3rem;
+}
 }
 
 /* Tablet (600px to 899px) */
@@ -330,54 +343,68 @@ font-size: 20px;
 
 
 
-.popup{
+.popup-cashin , .popup-cashout{
 
-
-    width: 50%;
+    width: 60%;
     top: 15%;
-    left: 20%;
+    left: 15%;
+    height: 60%;
 
 }
-
-
 .close-btn{
     padding: 0%;
     width: 10%;
     box-shadow: none;
 }
 
-
-
+.popup-header{
+    margin-top:10px;
+}
+.submit-btn{
+    margin-top:20px;
+}
+.formgroup label{
+    font-size: 1.3rem;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
 
 }
 
 /* Desktop (900px and above) */
 @media screen and (min-width: 900px) {
+    
 
+.popup-cashin , .popup-cashout{
 
-
-
-.popup{
-    position: fixed;
-    width: 40%;
-    top: 25%;
-    left: 29%;
-
+    width: 60%;
+    top: 15%;
+    left: 15%;
+    height: 70%;
 
 }
-
-
 .close-btn{
     padding: 0%;
     width: 10%;
     box-shadow: none;
 }
 
-
-
-
-
+.popup-header{
+    margin-top:20px;
 }
-
-
+.submit-btn{
+    margin-top:30px;
+}
+.formgroup label{
+    font-size: 1.4rem;
+    margin-top:10px;
+    margin-bottom: 15px;
+}
+.formgroup input{
+    font-size:1.3rem;
+}
+.formgroup{
+    margin-top:20px;
+}
+}
 

@@ -50,7 +50,7 @@ export default function profile(root) {
         
 
     <div class="overlay" id="cashinOverlay">
-        <div class="popup">
+        <div class="popup-cashin">
             <div class="popup-header">
                 <div class="popup-title">Cash In</div>
                 <button class="close-btn" id="closeCashinBtn">&times;</button>
@@ -71,8 +71,7 @@ export default function profile(root) {
     </div>
 
     <div class="overlay" id="cashoutOverlay">
-        <div class="tocenter">
-            <div class="popup">
+        <div class="popup-cashout">
             <div class="popup-header">
                 <div class="popup-title">Cash Out</div>
                 <button class="close-btn" id="closeCashoutBtn">&times;</button>

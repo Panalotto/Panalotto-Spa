@@ -4,7 +4,7 @@ import express from "express";
 import path from "path";
 import { setupWebSocket } from "./routesMaster/v1/countDown.js";
 
-const publicPath = "C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/public";
+const publicPath = "c:/Users/levs0/OneDrive/Desktop/PortableGit/Panalotto-Spa/Public";
 
 
 

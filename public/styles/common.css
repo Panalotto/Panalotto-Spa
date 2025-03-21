@@ -45,6 +45,8 @@ body {
     font-weight: lighter;
     color: #ff4ef5; /* Pinkish text */
     margin-left: 10px;
+    white-space: nowrap;
+    text-shadow: 0 10px 7px rgba(0,0,0,5),0 -1px 1px #fff;
 }
 /* Mobile (below 600px) */
 @media screen and (max-width: 599px) {
