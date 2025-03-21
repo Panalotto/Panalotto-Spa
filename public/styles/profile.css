@@ -233,17 +233,17 @@
      gap: 15px;
  }
  
- .form-group {
+ .formgroup {
      display: flex;
      flex-direction: column;
      gap: 5px;
  }
  
- .form-group label {
+ .formgroup label {
      font-size: 16px;
  }
  
- .form-group input, .form-group select {
+ .formgroup input, .form-group select {
      padding: 10px;
      border-radius: 5px;
      border: 1px solid #FF00FF;
@@ -263,64 +263,6 @@
      font-size: 16px;
      cursor: pointer;
      margin-top: 10px;
- }
- 
- 
- .draw-history-columns {
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     gap: 20px;
- }
- 
- .draw-history-column {
-     background: rgba(0, 0, 0, 0.2);
-     border-radius: 8px;
-     padding: 15px;
- }
- 
- .column-title {
-     font-size: 18px;
-     font-weight: bold;
-     margin-bottom: 15px;
-     color: #FFD700;
-     text-align: center;
-     border-bottom: 1px solid #FF00FF;
-     padding-bottom: 8px;
- }
- 
- .draw-entry {
-     display: flex;
-     justify-content: space-between;
-     padding: 10px;
-     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-     margin-bottom: 5px;
- }
- 
- .draw-date {
-     font-size: 14px;
-     color: #ccc;
- }
- 
- .draw-numbers {
-     display: flex;
-     gap: 5px;
- }
- 
- .number-ball {
-     width: 30px;
-     height: 30px;
-     border-radius: 50%;
-     background: #FF00FF;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-weight: bold;
-     font-size: 14px;
- }
- 
- .winner-ball {
-     background: #FFD700;
-     color: #000;
  }
  
  
@@ -378,15 +320,61 @@
 
 
 
+
+
  }
  
  /* Tablet (600px to 899px) */
  @media screen and (min-width: 600px) and (max-width: 899px) {
+
+    
+
+    .popup{
+
+
+        width: 50%;
+        top: 15%;
+        left: 20%;
+
+    }
+
+
+    .close-btn{
+        padding: 0%;
+        width: 10%;
+        box-shadow: none;
+    }
+
+
+  
     
  }
  
  /* Desktop (900px and above) */
  @media screen and (min-width: 900px) {
+    
+
+
+
+    .popup{
+        position: fixed;
+        width: 40%;
+        top: 25%;
+        left: 29%;
+
+
+    }
+
+
+    .close-btn{
+        padding: 0%;
+        width: 10%;
+        box-shadow: none;
+    }
+
+
+    
+
     
  }
  

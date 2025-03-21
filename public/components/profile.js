@@ -57,7 +57,7 @@ export default function profile(root) {
             </div>
             <div class="popup-content">
                 <form class="popup-form" enctype="multipart/form-data" id="cashinForm">
-                    <div class="form-group">
+                    <div class="formgroup">
                         <label for="username">Username</label>
 
                         <input type="text" id="username" value="${data.username}" readonly>                    
@@ -71,14 +71,15 @@ export default function profile(root) {
     </div>
 
     <div class="overlay" id="cashoutOverlay">
-        <div class="popup">
+        <div class="tocenter">
+            <div class="popup">
             <div class="popup-header">
                 <div class="popup-title">Cash Out</div>
                 <button class="close-btn" id="closeCashoutBtn">&times;</button>
             </div>
             <div class="popup-content">
                 <form class="popup-form" enctype="multipart/form-data" id="cashoutForm">
-                    <div class="form-group">
+                    <div class="formgroup">
                         <label for="username">Username</label>
 
                         <input type="text" id="username" value="${data.username}" readonly>  
@@ -89,93 +90,9 @@ export default function profile(root) {
                 </form>
             </div>
         </div>
-    </div>
-
-    <div class="overlay" id="historyOverlay">
-        <div class="popup">
-            <div class="popup-header">
-                <div class="popup-title">Draw History</div>
-                <button class="close-btn" id="closeHistoryBtn">&times;</button>
-            </div>
-            <div class="popup-content">
-                <div class="draw-history-columns">
-                    <div class="draw-history-column">
-                        <div class="column-title">Your Numbers</div>
-                        
-                        <div class="draw-entry">
-                            <div class="draw-date">Mar 8, 2025</div>
-                            <div class="draw-numbers">
-                                <div class="number-ball"></div>
-                                <div class="number-ball"></div>
-                                <div class="number-ball">23</div>
-                                <div class="number-ball">34</div>
-                                <div class="number-ball">45</div>
-                            </div>
-                        </div>
-                        
-                        <div class="draw-entry">
-                            <div class="draw-date">Mar 7, 2025</div>
-                            <div class="draw-numbers">
-                                <div class="number-ball">3</div>
-                                <div class="number-ball">16</div>
-                                <div class="number-ball">22</div>
-                                <div class="number-ball">27</div>
-                                <div class="number-ball">41</div>
-                            </div>
-                        </div>
-                        
-                        <div class="draw-entry">
-                            <div class="draw-date">Mar 6, 2025</div>
-                            <div class="draw-numbers">
-                                <div class="number-ball">5</div>
-                                <div class="number-ball">11</div>
-                                <div class="number-ball">19</div>
-                                <div class="number-ball">26</div>
-                                <div class="number-ball">38</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="draw-history-column">
-                        <div class="column-title">Winning Numbers</div>
-                        
-                        <div class="draw-entry">
-                            <div class="draw-date">Mar 8, 2025</div>
-                            <div class="draw-numbers">
-                                <div class="number-ball winner-ball">7</div>
-                                <div class="number-ball winner-ball">15</div>
-                                <div class="number-ball winner-ball">23</div>
-                                <div class="number-ball winner-ball">31</div>
-                                <div class="number-ball winner-ball">42</div>
-                            </div>
-                        </div>
-                        
-                        <div class="draw-entry">
-                            <div class="draw-date">Mar 7, 2025</div>
-                            <div class="draw-numbers">
-                                <div class="number-ball winner-ball">3</div>
-                                <div class="number-ball winner-ball">14</div>
-                                <div class="number-ball winner-ball">25</div>
-                                <div class="number-ball winner-ball">36</div>
-                                <div class="number-ball winner-ball">47</div>
-                            </div>
-                        </div>
-                        
-                        <div class="draw-entry">
-                            <div class="draw-date">Mar 6, 2025</div>
-                            <div class="draw-numbers">
-                                <div class="number-ball winner-ball">5</div>
-                                <div class="number-ball winner-ball">18</div>
-                                <div class="number-ball winner-ball">24</div>
-                                <div class="number-ball winner-ball">33</div>
-                                <div class="number-ball winner-ball">39</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+
             `;
 
             // Event listeners for modals

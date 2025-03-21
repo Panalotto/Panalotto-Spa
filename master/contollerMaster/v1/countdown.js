@@ -7,6 +7,8 @@ class CountdownController extends EventEmitter {
         this.countdown = 60; 
         this.interval = null;
         this.clients = new Set(); 
+        this.winningNumbers = null; 
+        
     }
 
     startCountdown() {
@@ -15,6 +17,8 @@ class CountdownController extends EventEmitter {
         }
 
         this.countdown = 60; // Reset countdown
+        this.winningNumbers = this.generateLottoResult();
+        console.log(`[TEST MODE] New Winning Numbers: ${this.winningNumbers}`);
         this.interval = setInterval(() => {
             if (this.countdown <= 0) {
                 clearInterval(this.interval);

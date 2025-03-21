@@ -7,12 +7,18 @@ const countdown = new CountdownController();
 export function setupWebSocket(server) {
     const wss = new WebSocketServer({ server });
 
+
     wss.on("connection", (ws) => {
         countdown.handleWebSocketConnection(ws);
     });
+    
+
 
     countdown.on("countdownFinished",async () => {
-        const result = countdown.generateLottoResult(); 
+        console.log(`[FINAL RESULT] Winning Numbers: ${countdown.winningNumbers}`);
+        const result = countdown.winningNumbers; 
+
+
 
         console.log(result);
 
@@ -24,6 +30,7 @@ export function setupWebSocket(server) {
         const draw_time = new Date().toISOString().slice(0, 19).replace("T", " "); 
         const winning_numbers = result;
         const payload = { draw_id, draw_time, winning_numbers };
+
 
         try {
             const response = await axios.post("http://localhost:3000/v1/result", payload, {

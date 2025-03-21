@@ -122,68 +122,31 @@
 }
 
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .register-card {
-        width: 90%; 
-        max-width: 380px;
-        padding: 50px 20px 20px;
-        position: absolute;
-        left: 30px;
-        height: 550px;
+@media screen and (max-width: 599px) {
+
+    .register-card{
+        width: 90%;
+        position: fixed;
+        left: 5%;
+        top: 50%;
+        height: auto;
+        
     }
 
-    .lottery-image {
-        width: 130px;
-        top: -60px;
-    }
 
-    .register-card h1 {
-        font-size: 35px;
-        margin-right: 230px;
-    }
-
-    .form-group input {
-        font-size: 14px;
-    }
-
-    .signup-btn {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    #imgsignup {
-        display: none;
-    }
+    
+    
 }
-@media screen and (max-width: 425px) {
-    .register-card {
-        width: 95%;
-        padding: 45px 15px 15px;
-        position: absolute;
-        left: 30px;
-    }
 
-    .lottery-image {
-        width: 120px;
-        top: -50px;
-    }
-
-    .register-card h1 {
-        font-size: 40px;
-    }
-
-    .form-group input {
-        font-size: 13px;
-        padding: 10px;
-    }
-
-    .signup-btn {
-        font-size: 13px;
-        padding: 9px;
-    }
-
-    #imgsignup {
-        display: none;
-    }
+/* Tablet (600px to 899px) */
+@media screen and (min-width: 600px) and (max-width: 899px) {
+   
 }
+
+/* Desktop (900px and above) */
+@media screen and (min-width: 900px) {
+   
+}
+
+
+
