@@ -49,12 +49,8 @@
     border-radius: 25px;
     border: 2px solid #9932CC;
     padding: 30px;
-    width: 450px;
     box-shadow: 0 0 20px rgba(153, 50, 204, 0.3);
-    height: 650px;
     position: fixed;
-    left: 200px;
-    top: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,7 +92,6 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    width: 350px;
     background-color: rgba(231, 226, 226, 0.1);
     color: white;
     transition: all 0.3s ease;
@@ -127,25 +122,122 @@
 
     .register-card{
         width: 90%;
-        position: fixed;
-        left: 5%;
+        position: absolute;
+        left: 6%;
         top: 50%;
         height: auto;
-        
+        transition: all 0.3s ease-in-out;
     }
 
+    .form-group{
+        width: 100%;
+    }
 
+    input{
+        width: 100%;
+    }
+
+    #imgsignup{
+        position: relative;
+        margin: 0%;
+        z-index: -1;
+        
+        left: 0%;
+    }
+
+    .signup-btn {
+        width: 100%;
+    }
     
+    .register-card h1{
+        width: 100%;
+        margin: 0%;
+        text-align: left;
+    }
     
 }
 
 /* Tablet (600px to 899px) */
 @media screen and (min-width: 600px) and (max-width: 899px) {
+
+    .register-card{
+        width: 40%;
+        position: absolute;
+        left: 6%;
+        top: 50%;
+        height: auto;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .form-group{
+        width: 100%;
+    }
+
+    input{
+        width: 100%;
+    }
+
+    #imgsignup{
+
+        height: 75%;
+        margin: 0%;
+        left: 36%;
+        position: fixed;
+        top: 15%;
+        width: 75%;
+    }
+
+    .signup-btn {
+        width: 100%;
+    }
+    
+    .register-card h1{
+        width: 100%;
+        margin: 0%;
+        text-align: left;
+    }
    
 }
 
 /* Desktop (900px and above) */
 @media screen and (min-width: 900px) {
+    .register-card{
+        width: 35%;
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        height: 70%;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .form-group{
+        width: 90%;
+    }
+
+    input{
+        width: 100%;
+    }
+
+    #imgsignup{
+
+        height: 60%;
+        margin: 0%;
+        left: 45%;
+        position: fixed;
+        top: 25%;
+        width: 50%;
+    }
+
+    .signup-btn {
+        width: 90%;
+    }
+    
+    .register-card h1{
+        width: 90%;
+        margin: 0%;
+        text-align: left;
+    }
+    
    
 }
 
