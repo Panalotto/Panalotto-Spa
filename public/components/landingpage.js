@@ -12,8 +12,8 @@ export default function LandingPageComponent(root) {
         <button data-path="/signup" id="register-btn">Sign Up</button>
     </div>
     <div class="game-container">
-        <img id="banner" src="./icons/banner.png">
-        <img id="mobileicon" src="./icons/mobileicon.png">
+    <img src="./icons/banner.png">
+        
     </div>
     <button id="play-button" class="play-button">TAP TO PLAY</button>
 
