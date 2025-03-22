@@ -1,3 +1,4 @@
+
 import connectWebSocket from './connectWeb/connectCountdown.js';
 import fetchLatestResult from './connectWeb/connectLatestResult.js';
 import fetchLatestTalpak from './connectWeb/connectLatestTalpak.js';
@@ -46,7 +47,7 @@ export default async function mainpage(root) {
                 <div class="info-section">
                     <div class="info-left">
                         <div class="info-box bet-box">
-                            <div class="info-label">Bet for only $100 </div>
+                            <div class="info-label">Bet for only $1000 </div>
                         </div>
                         <div class="info-box balance-box">
                             <div class="info-label">Balance: ${data.balance}</div>
@@ -68,6 +69,7 @@ export default async function mainpage(root) {
         const timeElement = document.getElementById('time');
         const numberBoxes = document.querySelectorAll(".draw-box");
         const dollarcon = document.querySelector(".dollar-icon");
+        
 
         if (!dollarcon) {
             console.error("❌ ERROR: .dollar-icon not found in DOM!");
@@ -75,6 +77,7 @@ export default async function mainpage(root) {
 
         connectWebSocket(timeElement, numberBoxes);
         await fetchLatestResult(numberBoxes);
+       
 
         setTimeout(() => {
             fetchLatestTalpak(dollarcon);
@@ -140,13 +143,18 @@ async function submitBet() {
         return;
     }
 
-    const betAmount = 100; // Dapat dynamic ito
+
+    const previous = await axios.get("http://localhost:3000/v1/result/latest-drawId");
+
+    const draw_Id = previous + 1 || 1; 
+    const betAmount = 1000; // Dapat dynamic ito
     const drawTime = new Date().toISOString().slice(0, 19).replace("T", " "); 
 
     // Convert array to string format
     const numbersString = numbers.join(", ");
 
     const payload = {
+        draw_id : draw_Id,
         numbers: numbersString,  // Convert array to string
         bet_amount: betAmount,
         draw_time: drawTime

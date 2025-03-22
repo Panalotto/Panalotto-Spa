@@ -4,7 +4,7 @@ import express from "express";
 import path from "path";
 import { setupWebSocket } from "./routesMaster/v1/countDown.js";
 
-const publicPath = "c:/Users/levs0/OneDrive/Desktop/PortableGit/Panalotto-Spa/Public";
+const publicPath = "C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/public";
 
 
 
@@ -24,6 +24,8 @@ app.use(express.static(publicPath));
 app.get("*", (req, res) => {
     res.sendFile(path.join(publicPath, "index.html"));
 });
+
+
 
 // const wss = new WebSocketServer({ server });
 // const replicas = new Set(); // Para sa listahan ng replicas

@@ -5,15 +5,13 @@
   "main": "master/server.js",
   "type": "module",
   "scripts": {
-    "start": "vite preview",
-    "build": "parcel build public/index.html",
-    "api": "nodemon --watch src src/index.js",
-    "server": "PORT=9004 nodemon master/server.js & PORT=9005 nodemon replicas/server.js",
-    "master": "nodemon --watch master master/server.js",
-    "replicas": "nodemon --watch replicas replicas/server.js",
-    "dev": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "dev": "concurrently \"cross-env PORT=9000 node master/server.js\" \"cross-env PORT=9001 node replicas/server.js\"",
+  "build": "npm run build:client && npm run build:server",
+  "build:client": "vite build --outDir dist/client",
+  "build:server": "vite build --outDir dist/server --ssr C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/master/server.js",
+  "start": "cross-env ENV=production node master.js",
+  "lint": "eslint ."
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

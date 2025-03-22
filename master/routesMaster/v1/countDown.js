@@ -16,7 +16,36 @@ export function setupWebSocket(server) {
 
     countdown.on("countdownFinished",async () => {
         console.log(`[FINAL RESULT] Winning Numbers: ${countdown.winningNumbers}`);
+
+        //http://localhost:3000/v1/winner/winner-ka
+
+        try {
+            const response = await axios.get("http://localhost:3000/v1/winner/winner-ka", {
+                headers: { apikey: "panalotto" }
+            });
+            console.log("Winner:", response.data);
+            console.log("Winner ka:", response.data.data.bets);
+
+        } catch (error) {
+            console.error("Error inserting lotto result:", error.message);
+        }
+
+
+
+        try {
+            const response = await axios.get("http://localhost:3000/v1/winner/get-win", {
+                headers: { apikey: "panalotto" }
+            });
+            console.log("aLL BETS inserted:", response.data);
+            console.log("Bets Data:", response.data.data.bets);
+
+        } catch (error) {
+            console.error("Error inserting lotto result:", error.message);
+        }
+
+
         const result = countdown.winningNumbers; 
+
 
 
 
@@ -24,12 +53,9 @@ export function setupWebSocket(server) {
 
         // http://localhost:3000/v1/latest-drawId
 
-        const previous = await axios.get("http://localhost:3000/v1/result/latest-drawId");
-
-        const draw_id = previous + 1 || 1; 
-        const draw_time = new Date().toISOString().slice(0, 19).replace("T", " "); 
+    
         const winning_numbers = result;
-        const payload = { draw_id, draw_time, winning_numbers };
+        const payload = {winning_numbers };
 
 
         try {
@@ -40,6 +66,8 @@ export function setupWebSocket(server) {
         } catch (error) {
             console.error("Error inserting lotto result:", error.message);
         }
+
+        
 
 
         const data = JSON.stringify({ event: "roundFinished", result });

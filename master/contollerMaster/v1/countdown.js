@@ -56,7 +56,7 @@ class CountdownController extends EventEmitter {
         while (numbers.size < 6) {
             numbers.add(Math.floor(Math.random() * 45) + 1);
         }
-        return Array.from(numbers).sort((a, b) => a - b).join(", ");
+        return Array.from(numbers)
     }
     
 
