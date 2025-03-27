@@ -6,6 +6,9 @@ import mainpageComponent from "./pages/mainPage.js";
 import ProfilePage from "./pages/profile.js";
 import LandingPage from "./pages/landingpage.js";
 
+
+
+
 const app = new SPA({
     root: document.getElementById('app'),
     defaultRoute: PageNotFound,

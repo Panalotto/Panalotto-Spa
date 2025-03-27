@@ -2,20 +2,21 @@
   "name": "panalotto-spa",
   "version": "1.0.0",
   "description": "",
-  "main": "master/server.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-  "dev": "concurrently \"cross-env PORT=9000 node master/server.js\" \"cross-env PORT=9001 node replicas/server.js\"",
-  "build": "npm run build:client && npm run build:server",
-  "build:client": "vite build --outDir dist/client",
-  "build:server": "vite build --outDir dist/server --ssr C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/master/server.js",
-  "start": "cross-env ENV=production node master.js",
-  "lint": "eslint ."
-},
+    "dev": "concurrently \"cross-env PORT=9000 node master/server.js\" \"cross-env PORT=9001 node replicas/server.js\"",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --outDir dist/server --ssr C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/public/main.js",
+    "start": "cross-env ENV=production node server.js",
+    "lint": "eslint ."
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "parcel": "^2.12.0",
     "vite": "^6.2.2"
   },

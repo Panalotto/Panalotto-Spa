@@ -1,6 +1,6 @@
 import http from "http";
 import express from "express";
-// import { WebSocketServer } from "ws";
+import { WebSocketServer } from "ws";
 import path from "path";
 import { setupWebSocket } from "./routesMaster/v1/countDown.js";
 
@@ -8,14 +8,12 @@ const publicPath = "C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/p
 
 
 
-
-const port = 9000;
-
 const app = express();
 const server = http.createServer(app);
-setupWebSocket(server);
+const wss = new WebSocketServer({ server });
 
-server.listen(port, () => console.log(`Master Server Started at Port: ${port}`));
+setupWebSocket(wss);
+
 
 console.log("Serving index.html from:", path.join(publicPath, "index.html"));
 
@@ -27,63 +25,23 @@ app.get("*", (req, res) => {
 
 
 
-// const wss = new WebSocketServer({ server });
-// const replicas = new Set(); // Para sa listahan ng replicas
-
-// let timeLeft = 60; // Start ng countdown
-
-// function startCountdown() {
-//     const countdownInterval = setInterval(() => {
-//         if (timeLeft > 0) {
-//             const message = JSON.stringify({ type: "COUNTDOWN", data: timeLeft });
-
-//             // Broadcast sa lahat ng connected clients
-//             wss.clients.forEach((client) => {
-//                 if (client.readyState === client.OPEN) {
-//                     client.send(message);
-//                 }
-//             });
-
-//             timeLeft--;
-//         } else {
-//             clearInterval(countdownInterval); // Stop current countdown
-//             console.log("🎯 Countdown finished. Restarting in 3 seconds...");
-
-//             // Maghintay ng 3 segundo bago mag-restart
-//             setTimeout(() => {
-//                 timeLeft = 60; // Reset to 60 seconds
-//                 startCountdown(); // Loop ulit
-//             }, 3000);
-//         }
-//     }, 1000);
-// }
-
-// // Simulan ang countdown kapag may unang client na nag-connect
-// wss.on("connection", (ws) => {
-//     console.log("Client connected.");
-
-//     if (wss.clients.size === 1) {
-//         startCountdown(); // Start the countdown loop only once
-//     }
-// });
+const subscribers = new Set();
 
 
-// wss.on("connection", (ws) => {
-//     console.log(`Client connected to Master at port ${port}`);
+wss.on("connection", (ws) => {
+    console.log("✅ Server1: Subscriber connected!");
+    subscribers.add(ws);
 
-//     ws.on("message", (message) => {
-//         try {
-//             const data = JSON.parse(message);
 
-//             if (data.type === "REGISTER") {
-//                 console.log(`Replica ${data.replica} registered.`);
-//                 replicas.add(ws); // I-save ang connection ng replica
-//             }
-//         } catch (error) {
-//             console.error("Error processing message:", error);
-//         }
-//     });
+    ws.on("close", () => {
+        console.log("🔴 Server1: Subscriber disconnected!");
+        subscribers.delete(ws);
+    });
+});
 
-//     // Ipadala agad ang kasalukuyang countdown timer sa bagong client
-//     ws.send(JSON.stringify({ type: "COUNTDOWN", data: timeLeft }));
-// });
+// Start the server
+const PORT = 9000;
+server.listen(PORT, () => {
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
+    console.log(`🚀 WebSocket Server running on ws://localhost:9000`);
+});

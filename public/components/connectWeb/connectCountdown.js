@@ -1,5 +1,14 @@
 export default function connectWebSocket(timeElement, numberBoxes) {
-    const WS_URL = "ws://localhost:9000";
+    // PUBLISHER SERVER 1 = "ws://localhost:9000"
+    // CLIENT SERVER 2 = "ws://localhost:9001"
+
+    // let socket = new WebSocket(window.location.origin);
+    // const WS_URL = "ws://localhost:9000";
+    // let socket = new WebSocket(WS_URL);
+
+
+    const browserPort = window.location.port;
+    const WS_URL = `ws://localhost:${browserPort}`;
     let socket = new WebSocket(WS_URL);
 
     socket.onopen = () => {

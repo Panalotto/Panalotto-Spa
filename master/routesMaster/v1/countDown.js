@@ -1,94 +1,55 @@
-import { WebSocketServer, WebSocket } from "ws";
+import { WebSocket } from "ws";
 import axios from "axios";
 import CountdownController from "../../contollerMaster/v1/countdown.js";
 
 const countdown = new CountdownController();
 
-export function setupWebSocket(server) {
-    const wss = new WebSocketServer({ server });
-
-
+export function setupWebSocket(wss) {
     wss.on("connection", (ws) => {
+        console.log("✅ New WebSocket Client Connected (Countdown)");
         countdown.handleWebSocketConnection(ws);
     });
-    
 
+    if (!countdown.listenerCount("countdownFinished")) {
+        countdown.on("countdownFinished", async () => {
+            console.log(`[FINAL RESULT] Winning Numbers: ${countdown.winningNumbers}`);
 
-    countdown.on("countdownFinished",async () => {
-        console.log(`[FINAL RESULT] Winning Numbers: ${countdown.winningNumbers}`);
-
-        //http://localhost:3000/v1/winner/winner-ka
-
-        try {
-            const response = await axios.get("http://localhost:3000/v1/winner/winner-ka", {
-                headers: { apikey: "panalotto" }
-            });
-            console.log("Winner:", response.data);
-            console.log("Winner ka:", response.data.data.bets);
-
-        } catch (error) {
-            console.error("Error inserting lotto result:", error.message);
-        }
-
-
-
-        try {
-            const response = await axios.get("http://localhost:3000/v1/winner/get-win", {
-                headers: { apikey: "panalotto" }
-            });
-            console.log("aLL BETS inserted:", response.data);
-            console.log("Bets Data:", response.data.data.bets);
-
-        } catch (error) {
-            console.error("Error inserting lotto result:", error.message);
-        }
-
-
-        const result = countdown.winningNumbers; 
-
-
-
-
-        console.log(result);
-
-        // http://localhost:3000/v1/latest-drawId
-
-    
-        const winning_numbers = result;
-        const payload = {winning_numbers };
-
-
-        try {
-            const response = await axios.post("http://localhost:3000/v1/result", payload, {
-                headers: { apikey: "panalotto" }
-            });
-            console.log("Lotto result inserted:", response.data);
-        } catch (error) {
-            console.error("Error inserting lotto result:", error.message);
-        }
-
-        
-
-
-        const data = JSON.stringify({ event: "roundFinished", result });
-
-        // http://localhost:3000/v1/draw
-
-        
-
-        
-
-        
-
-        
-        countdown.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN) { 
-                client.send(data);
+            try {
+                const response = await axios.get("http://localhost:3000/v1/winner/get-win", {
+                    headers: { apikey: "panalotto" }
+                });
+                console.log("✅ ALL BETS inserted:", response.data);
+            } catch (error) {
+                console.error("❌ Error inserting lotto result:", error.message);
             }
-        });
 
-        countdown.startCountdown(); 
-    });
+            const result = countdown.winningNumbers; 
+            const payload = { winning_numbers: result };
+
+            try {
+                const response = await axios.post("http://localhost:3000/v1/result", payload, {
+                    headers: { apikey: "panalotto" }
+                });
+                console.log("✅ Lotto result inserted:", response.data);
+            } catch (error) {
+                console.error("❌ Error inserting lotto result:", error.message);
+            }
+
+            const data = JSON.stringify({ event: "roundFinished", result });
+
+            countdown.clients.forEach((client) => {
+                if (client.readyState === WebSocket.OPEN) { 
+                    try {
+                        client.send(data);
+                    } catch (error) {
+                        console.error("❌ Error sending WebSocket message:", error.message);
+                    }
+                }
+            });
+
+            countdown.startCountdown(); 
+        });
+    }
 
     countdown.startCountdown(); 
 }

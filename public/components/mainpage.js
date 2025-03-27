@@ -50,7 +50,7 @@ export default async function mainpage(root) {
                             <div class="info-label">Bet for only $1000 </div>
                         </div>
                         <div class="info-box balance-box">
-                            <div class="info-label">Balance: ${data.balance}</div>
+                            <div class="info-label">Balance:$ ${data.balance}</div>
                         </div>
                     </div>
                     <div class="info-right">
@@ -135,6 +135,12 @@ export default async function mainpage(root) {
 }
 
 async function submitBet() {
+    // Check if WebSocket is connected
+    if (!window.ws || window.ws.readyState !== WebSocket.OPEN) {
+        alert("WebSocket is not connected. Please refresh or check server.");
+        return;
+    }
+
     const inputBoxes = document.querySelectorAll(".input-box");
     const numbers = Array.from(inputBoxes).map(box => box.value.trim());
 
@@ -143,19 +149,15 @@ async function submitBet() {
         return;
     }
 
-
     const previous = await axios.get("http://localhost:3000/v1/result/latest-drawId");
-
     const draw_Id = previous + 1 || 1; 
-    const betAmount = 1000; // Dapat dynamic ito
+    const betAmount = 1000;
     const drawTime = new Date().toISOString().slice(0, 19).replace("T", " "); 
-
-    // Convert array to string format
     const numbersString = numbers.join(", ");
 
     const payload = {
         draw_id : draw_Id,
-        numbers: numbersString,  // Convert array to string
+        numbers: numbersString,
         bet_amount: betAmount,
         draw_time: drawTime
     };
