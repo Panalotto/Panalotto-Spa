@@ -1,25 +1,25 @@
-export default function connectWebSocket(timeElement, numberBoxes) {
-    // PUBLISHER SERVER 1 = "ws://localhost:9000"
-    // CLIENT SERVER 2 = "ws://localhost:9001"
-
-    // let socket = new WebSocket(window.location.origin);
-    // const WS_URL = "ws://localhost:9000";
-    // let socket = new WebSocket(WS_URL);
-
-
+export default function connectWebSocket(timeElement, numberBoxes, connectionCallback) {
     const browserPort = window.location.port;
     const WS_URL = `ws://localhost:${browserPort}`;
-    let socket = new WebSocket(WS_URL);
+    
+    if (window.ws && window.ws.readyState !== WebSocket.CLOSED) {
+        console.log("⚠️ WebSocket already initialized.");
+        return;
+    }
 
-    socket.onopen = () => {
-        console.log("✅ WebSocket Connected!");
+    window.ws = new WebSocket(WS_URL);
+
+    window.ws.onopen = () => {
+        console.log("✅ WebSocket: Connected");
         timeElement.innerText = "Waiting for countdown...";
+        if (typeof connectionCallback === 'function') {
+            connectionCallback(true);
+        }
     };
 
-    socket.onmessage = (event) => {
+    window.ws.onmessage = (event) => {
         try {
             const data = JSON.parse(event.data);
-            // console.log("🟢 WebSocket Data Received:", data);
 
             if (data.event === "countdownUpdate") {
                 timeElement.innerText = `Next Draw: ${data.countdown} seconds`;
@@ -27,13 +27,14 @@ export default function connectWebSocket(timeElement, numberBoxes) {
                 timeElement.innerText = "Winning Result";
 
                 let winningNumbers = data.result;
+                
+ 
                 if (typeof winningNumbers === "string") {
-                    winningNumbers = winningNumbers.split(/,\s*/).map(num => parseInt(num, 10));
+                    winningNumbers = winningNumbers.split(/[-\s]+/).map(num => parseInt(num, 10));
                 }
 
-
-                if (!Array.isArray(winningNumbers)) {
-                    console.error("Invalid winning numbers format:", winningNumbers);
+                if (!Array.isArray(winningNumbers) || winningNumbers.some(isNaN)) {
+                    console.error("❌ Invalid winning numbers format:", winningNumbers);
                     return;
                 }
 
@@ -44,7 +45,7 @@ export default function connectWebSocket(timeElement, numberBoxes) {
                 });
 
                 if (winningNumbers.length !== numberBoxes.length) {
-                    console.warn("Mismatch in numbers count! Check WebSocket result format.");
+                    console.warn("⚠️ Mismatch in numbers count! Check WebSocket result format.");
                 }
             }
         } catch (error) {
@@ -52,16 +53,28 @@ export default function connectWebSocket(timeElement, numberBoxes) {
         }
     };
 
-    socket.onerror = (error) => {
+    window.ws.onerror = (error) => {
         console.error("⚠️ WebSocket Error:", error);
         timeElement.innerText = "Connection Error!";
+        if (typeof connectionCallback === 'function') {
+            connectionCallback(false);
+        }
     };
 
-    socket.onclose = () => {
-        console.log("🔄 WebSocket Disconnected! Reconnecting in 3s...");
+    window.ws.onclose = () => {
+        console.log("❌ WebSocket: Disconnected");
         timeElement.innerText = "Reconnecting...";
-        
-        
-        setTimeout(() => connectWebSocket(timeElement, numberBoxes), 3000);
+
+        if (typeof connectionCallback === 'function') {
+            connectionCallback(false);
+        }
+
+        let reconnectDelay = Math.min(1000 * Math.pow(2, window.reconnectAttempts || 0), 30000);
+        window.reconnectAttempts = (window.reconnectAttempts || 0) + 1;
+
+        setTimeout(() => {
+            console.log(`🔄 Attempting to reconnect in ${reconnectDelay / 1000}s...`);
+            connectWebSocket(timeElement, numberBoxes, connectionCallback);
+        }, reconnectDelay);
     };
 }

@@ -17,7 +17,7 @@ export default function profile(root) {
     <div class="profile-container">
         <div class="game-box">
             <img src="https://res.cloudinary.com/dpjhzyge9/image/upload/v1741359300/f060bf1358d82e7e0adc287c46915bc6_xyiufz.jpg" alt="Cash Back Promotion">
-            <a href="/mainpage"><button class="play-btn">Play</button></a>
+            <a href="#" id="playLink"><button class="play-btn">Play</button></a>
         </div>
         
         <div class="profile-card">
@@ -93,6 +93,9 @@ export default function profile(root) {
     </div>
 
             `;
+
+            
+            
 
             // Event listeners for modals
             document.getElementById("cashinBtn").addEventListener("click", () => {
@@ -217,6 +220,12 @@ export default function profile(root) {
                     cashoutErrorMessage.style.display = "block";
                 }
             });
+
+            document.getElementById("playLink").addEventListener("click", (event) => {
+                event.preventDefault(); 
+                window.location.href = "/mainpage";
+            });
+            
 
         } else {
             root.innerHTML = "<p>Error loading profile.</p>";

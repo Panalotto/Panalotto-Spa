@@ -5,7 +5,7 @@ import { WebSocketServer, WebSocket } from "ws";
 import {setupWebSocket} from "./routesMaster/v1/countDown.js"
 
 const PORT = process.env.PORT;
-const isMainServer = PORT;
+const isMainServer = PORT ==9000;
 
 const app = express();
 const server = http.createServer(app);

@@ -29,7 +29,7 @@ export default function CreateAccount(root) {
                     </div>
                     <button type="submit" class="signup-btn">Signup</button>
                     <div class="login-link">
-                        <span>Already have an account? <a href="/signIn">Log-In</a></span>
+                        <span>Already have an account? <a href="#" id="pasok">Log-In</a></span>
                     </div>
                 </form>
             </div>
@@ -45,11 +45,20 @@ export default function CreateAccount(root) {
             <div class="popup-content">
                 <p>Thanks for creating an account!</p>
                 <h3>Welcome to PANALOTTO</h3>
-                <button data-path="/signIn">Continue</button>
+                <button id="continueBtn">Continue</button>
             </div>
         </div>
     </div>
     `;
+
+    document.getElementById("pasok").addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent the default <a> tag behavior
+        window.location.href = "/signIn";
+    });  
+
+    document.getElementById("continueBtn").addEventListener("click", () => {
+        window.location.href = "/signIn";
+    });
 
     // Get Elements
     const signUp = document.getElementById('signup');
@@ -57,27 +66,28 @@ export default function CreateAccount(root) {
     const usernameError = document.getElementById('usernameError');
     const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
+    const continueBtn = document.getElementById('continueBtn');
 
     signUp.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Get Form Data
         const formData = new FormData(e.target);
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
+        const data = Object.fromEntries(formData.entries());
 
         // Reset Error Messages
         usernameError.textContent = '';
         emailError.textContent = '';
         passwordError.textContent = '';
-        
-        if (password !== confirmPassword) {
+
+        // Password Validation
+        if (data.password !== document.getElementById('confirm-password').value) {
             passwordError.textContent = "Passwords do not match";
             return;
         }
 
         try {
-            const response = await axios.post("http://localhost:3000/v1/account", Object.fromEntries(formData), {
+            const response = await axios.post("http://localhost:3000/v1/account", data, {
                 headers: {
                     "Content-Type": "application/json",
                     "apikey": "panalotto",
@@ -85,7 +95,7 @@ export default function CreateAccount(root) {
             });
 
             if (response.data.success) {
-                popupOverlay.style.display = 'block';
+                popupOverlay.style.display = 'flex';
             } else {
                 const message = response.data.message;
                 if (message === 'username') {
@@ -97,5 +107,9 @@ export default function CreateAccount(root) {
         } catch (error) {
             console.error("Error:", error);
         }
+
+          
     });
+
+    
 }

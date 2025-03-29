@@ -4,6 +4,7 @@ import fetchLatestResult from './connectWeb/connectLatestResult.js';
 import fetchLatestTalpak from './connectWeb/connectLatestTalpak.js';
 
 export default async function mainpage(root) {
+
     try {
         const response = await axios.get('http://localhost:3000/v1/account', {
             headers: {
@@ -62,7 +63,22 @@ export default async function mainpage(root) {
                         </div>
                     </div>
                 </div>
+
+                
             </div>
+
+            <div class="popUp-modal">
+            <div class="container-modal">
+                <div class="container neon-frame">
+                    <h1>You Won</h1>
+                    <p class="winner-number">Winner Number: <strong>6 10 5 25 36 45</strong></p>
+                    <div class="info-label">Prize <span class="dollar-icon">$ </span></div>
+                </div>
+            </div>
+            
+        </div>
+            
+        </div>
         </div>
         `;
 
@@ -140,6 +156,7 @@ async function submitBet() {
         alert("WebSocket is not connected. Please refresh or check server.");
         return;
     }
+    
 
     const inputBoxes = document.querySelectorAll(".input-box");
     const numbers = Array.from(inputBoxes).map(box => box.value.trim());
@@ -149,14 +166,12 @@ async function submitBet() {
         return;
     }
 
-    const previous = await axios.get("http://localhost:3000/v1/result/latest-drawId");
-    const draw_Id = previous + 1 || 1; 
+  
     const betAmount = 1000;
     const drawTime = new Date().toISOString().slice(0, 19).replace("T", " "); 
-    const numbersString = numbers.join(", ");
+    const numbersString = numbers.join("- ");
 
     const payload = {
-        draw_id : draw_Id,
         numbers: numbersString,
         bet_amount: betAmount,
         draw_time: drawTime

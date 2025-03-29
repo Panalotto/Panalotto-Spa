@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"cross-env PORT=9000 node master/server.js\" \"cross-env PORT=9001 node master/server.js\"",
+    "dev": " concurrently \" node src/index.js\" \"cross-env PORT=9000 node master/server.js\" \"cross-env PORT=9001 node master/server.js\" \"cross-env PORT=9002 node master/server.js\" ",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/public/main.js",
