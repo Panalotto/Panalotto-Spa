@@ -1,4 +1,3 @@
-
 import connectWebSocket from './connectWeb/connectCountdown.js';
 import fetchLatestResult from './connectWeb/connectLatestResult.js';
 import fetchLatestTalpak from './connectWeb/connectLatestTalpak.js';
@@ -63,29 +62,44 @@ export default async function mainpage(root) {
                         </div>
                     </div>
                 </div>
-
-                
             </div>
 
             <div class="popUp-modal">
-            <div class="container-modal">
-                <div class="container neon-frame">
-                    <h1>You Won</h1>
-                    <p class="winner-number">Winner Number: <strong>6 10 5 25 36 45</strong></p>
-                    <div class="info-label">Prize <span class="dollar-icon">$ </span></div>
+                <div class="container-modal">
+                    <div class="container neon-frame">
+                        <h1>Draw Results</h1>
+                        <div class="result-section">
+                            <div class="winning-numbers-section">
+                                <h3>Winning Numbers</h3>
+                                <div class="number-display">
+                                    <p class="winner-number"><strong>--</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prize-section">
+                            <h3>Prize</h3>
+                            <div class="info-label">$ <span class="dollar-icon">0</span></div>
+                        </div>
+                        <div class="winner-info-section">
+                            <h3>Winners</h3>
+                            <div class="winner-list">
+                                <p>Awaiting results...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-        </div>
-            
-        </div>
         </div>
         `;
 
         const timeElement = document.getElementById('time');
         const numberBoxes = document.querySelectorAll(".draw-box");
         const dollarcon = document.querySelector(".dollar-icon");
-        
+
+        const popupModal = document.querySelector(".popUp-modal");
+        if (popupModal) {
+            popupModal.style.display = "none";
+        }
 
         if (!dollarcon) {
             console.error("❌ ERROR: .dollar-icon not found in DOM!");
@@ -93,11 +107,26 @@ export default async function mainpage(root) {
 
         connectWebSocket(timeElement, numberBoxes);
         await fetchLatestResult(numberBoxes);
-       
 
         setTimeout(() => {
             fetchLatestTalpak(dollarcon);
         }, 500);
+
+        if (window.ws) {
+            window.ws.addEventListener("message", (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    console.log("WebSocket message received:", data);
+                    if (data.event === "roundFinished") {
+                        const winningNumbers = data.result;
+                        console.log("Showing popup with winning numbers:", winningNumbers);
+                        showWinningNumbersPopup(winningNumbers);
+                    }
+                } catch (error) {
+                    console.error("Error processing WebSocket message:", error);
+                }
+            });
+        }
 
         const inputBoxes = document.querySelectorAll(".input-box");
 
@@ -140,7 +169,7 @@ export default async function mainpage(root) {
         });
 
         document.querySelector("#talpak").addEventListener("submit", async (e) => {
-            e.preventDefault(); // Prevent page reload
+            e.preventDefault();
             submitBet();
         });
 
@@ -151,12 +180,10 @@ export default async function mainpage(root) {
 }
 
 async function submitBet() {
-    // Check if WebSocket is connected
     if (!window.ws || window.ws.readyState !== WebSocket.OPEN) {
         alert("WebSocket is not connected. Please refresh or check server.");
         return;
     }
-    
 
     const inputBoxes = document.querySelectorAll(".input-box");
     const numbers = Array.from(inputBoxes).map(box => box.value.trim());
@@ -166,7 +193,6 @@ async function submitBet() {
         return;
     }
 
-  
     const betAmount = 1000;
     const drawTime = new Date().toISOString().slice(0, 19).replace("T", " "); 
     const numbersString = numbers.join("- ");
@@ -203,4 +229,121 @@ async function submitBet() {
     } catch (error) {
         console.error("Error submitting bet:", error);
     }
+}
+
+function showWinningNumbersPopup(winningNumbers) {
+    console.log("showWinningNumbersPopup called with:", winningNumbers);
+    
+    const popupModal = document.querySelector(".popUp-modal");
+    const winnerNumberElement = document.querySelector(".winner-number strong");
+    const prizeLabel = document.querySelector(".prize-section .info-label");
+    
+    console.log("Popup elements:", { 
+        popupModal: !!popupModal, 
+        winnerNumberElement: !!winnerNumberElement, 
+        prizeLabel: !!prizeLabel
+    });
+    
+    if (!popupModal || !winnerNumberElement) {
+        console.error("Popup elements not found in DOM");
+        return;
+    }
+
+    let formattedNumbers;
+    let winningArray = winningNumbers;
+    if (typeof winningNumbers === "string") {
+        formattedNumbers = winningNumbers;
+        winningArray = winningNumbers.split(/[-\s]+/).map(num => num.trim());
+    } else if (Array.isArray(winningNumbers)) {
+        formattedNumbers = winningNumbers.join(" ");
+        winningArray = winningNumbers.map(num => String(num).trim());
+    } else {
+        console.error("Invalid winning numbers format:", winningNumbers);
+        return;
+    }
+
+    console.log("Formatted winning numbers:", formattedNumbers);
+    console.log("Winning array:", winningArray);
+
+    const isMobile = window.innerWidth <= 599;
+
+    if (isMobile && winningArray.length > 5) {
+        winnerNumberElement.textContent = formattedNumbers;
+    } else {
+        winnerNumberElement.textContent = formattedNumbers;
+    }
+
+    popupModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+        popupModal.classList.add("active");
+        console.log("Popup should be visible now");
+    }, 10);
+    
+    checkUserWin(winningNumbers, prizeLabel);
+    fetchWinnerInfo();
+
+    setTimeout(() => closePopup(popupModal), 5000);
+}
+
+function checkUserWin(winningNumbers, prizeLabel) {
+    console.log("checkUserWin called with prizeLabel:", prizeLabel);
+    
+    const inputBoxes = document.querySelectorAll(".input-box");
+    const userNumbers = Array.from(inputBoxes).map(box => box.value.trim()).filter(val => val !== "");
+
+    let winningArray = winningNumbers;
+    if (typeof winningNumbers === "string") {
+        winningArray = winningNumbers.split(/[-\s]+/).map(num => num.trim());
+    } else if (Array.isArray(winningNumbers)) {
+        winningArray = winningNumbers.map(num => String(num).trim());
+    } else {
+        console.error("Invalid winning numbers format:", winningNumbers);
+        return;
+    }
+
+    console.log("User numbers:", userNumbers);
+    console.log("Winning numbers:", winningArray);
+
+    const popupTitle = document.querySelector(".container-modal h1");
+
+    if (userNumbers.length === 6) {
+        console.log("Popup title element:", popupTitle);
+
+        if (popupTitle) {
+            const matchCount = userNumbers.filter(num => winningArray.includes(num)).length;
+            console.log("Match count:", matchCount);
+
+            let prizeAmount = 0;
+            if (matchCount === 6) {
+                prizeAmount = 100000;
+                popupTitle.textContent = "JACKPOT! You Won!";
+            } else if (matchCount === 5) {
+                prizeAmount = 5000;
+                popupTitle.textContent = "Great! 5 Matches!";
+            } else if (matchCount >= 3) {
+                prizeAmount = 1000;
+                popupTitle.textContent = `${matchCount} Matches!`;
+            } else {
+                prizeAmount = 0;
+                popupTitle.textContent = "No Win. Try Again!";
+            }
+
+            prizeLabel.innerHTML = `$ <span class="dollar-icon">${prizeAmount}</span>`;
+        }
+    }
+}
+
+function fetchWinnerInfo() {
+    const winnerList = document.querySelector(".winner-list");
+    if (winnerList) {
+        winnerList.innerHTML = "<p>1st: John Doe<br>2nd: Jane Smith<br>3rd: Bob Lee</p>";
+    }
+}
+
+function closePopup(popupModal) {
+    popupModal.classList.remove("active");
+    popupModal.style.display = "none";
+    document.body.style.overflow = "";
 }

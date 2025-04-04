@@ -70,7 +70,7 @@ if (!isMainServer) {
 }
 
 // Serve Public Files
-const publicPath = "C:/Users/Administrator/Downloads/PortableGit/Panalotto-SPA/public";
+const publicPath = "C:/Users/Vader/Desktop/Panalotto-Spa/public";
 app.use(express.static(publicPath));
 
 app.get("*", (req, res) => {
