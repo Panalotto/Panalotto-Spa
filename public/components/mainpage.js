@@ -78,8 +78,9 @@ export default async function mainpage(root) {
                         </div>
                         <div class="prize-section">
                             <h3>Prize</h3>
-                            <div class="info-label">$ <span class="dollar-icon">0</span></div>
+                            <div class="info-label"><span class="dollar-icon">0</span></div>
                         </div>
+                        <div class="user-result"></div>
                         <div class="winner-info-section">
                             <h3>Winners</h3>
                             <div class="winner-list">
@@ -281,8 +282,11 @@ function showWinningNumbersPopup(winningNumbers) {
         console.log("Popup should be visible now");
     }, 10);
     
-    checkUserWin(winningNumbers, prizeLabel);
-    fetchWinnerInfo();
+    // Fetch prize pool first, then check user win and fetch winners
+    fetchPrizePool().then(() => {
+        checkUserWin(winningNumbers, prizeLabel);
+        fetchWinnerInfo();
+    });
 
     setTimeout(() => closePopup(popupModal), 5000);
 }
@@ -292,7 +296,7 @@ function checkUserWin(winningNumbers, prizeLabel) {
     
     const inputBoxes = document.querySelectorAll(".input-box");
     const userNumbers = Array.from(inputBoxes).map(box => box.value.trim()).filter(val => val !== "");
-
+    
     let winningArray = winningNumbers;
     if (typeof winningNumbers === "string") {
         winningArray = winningNumbers.split(/[-\s]+/).map(num => num.trim());
@@ -302,44 +306,110 @@ function checkUserWin(winningNumbers, prizeLabel) {
         console.error("Invalid winning numbers format:", winningNumbers);
         return;
     }
-
+    
     console.log("User numbers:", userNumbers);
     console.log("Winning numbers:", winningArray);
-
+    
     const popupTitle = document.querySelector(".container-modal h1");
-
+    const userResultElement = document.querySelector(".user-result");
+    
+    // Default message for user who didn't enter numbers
+    let titleText = "Today's Drawing Results";
+    let userResultText = "";
+    
     if (userNumbers.length === 6) {
         console.log("Popup title element:", popupTitle);
-
+        
         if (popupTitle) {
             const matchCount = userNumbers.filter(num => winningArray.includes(num)).length;
             console.log("Match count:", matchCount);
-
-            let prizeAmount = 0;
+            
             if (matchCount === 6) {
-                prizeAmount = 100000;
-                popupTitle.textContent = "JACKPOT! You Won!";
+                titleText = "JACKPOT! You Won!";
+                userResultText = "Congratulations! You've won the jackpot!";
             } else if (matchCount === 5) {
-                prizeAmount = 5000;
-                popupTitle.textContent = "Great! 5 Matches!";
+                titleText = "Great! 5 Matches!";
+                userResultText = "Congratulations! You've matched 5 numbers!";
             } else if (matchCount >= 3) {
-                prizeAmount = 1000;
-                popupTitle.textContent = `${matchCount} Matches!`;
+                titleText = `${matchCount} Matches!`;
+                userResultText = `Congratulations! You've matched ${matchCount} numbers!`;
             } else {
-                prizeAmount = 0;
-                popupTitle.textContent = "No Win. Try Again!";
+                titleText = "No Win. Try Again!";
+                userResultText = "Sorry, you didn't win this time. Try again!";
             }
-
-            prizeLabel.innerHTML = `$ <span class="dollar-icon">${prizeAmount}</span>`;
+            
+            popupTitle.textContent = titleText;
         }
+    }
+    
+    // Update user result display if element exists
+    if (userResultElement) {
+        userResultElement.textContent = userResultText;
     }
 }
 
 function fetchWinnerInfo() {
     const winnerList = document.querySelector(".winner-list");
+    
     if (winnerList) {
-        winnerList.innerHTML = "<p>1st: John Doe<br>2nd: Jane Smith<br>3rd: Bob Lee</p>";
+        // Add more realistic data with prize amounts
+        winnerList.innerHTML = `
+            <div class="winner-card">
+                <div class="winner-username">Diether Pano</div>
+                <div class="winner-prize">$10,000</div>
+            </div>
+        `;
     }
+}
+
+// Function to fetch the prize pool amount
+function fetchPrizePool() {
+    return new Promise((resolve, reject) => {
+        fetch("http://localhost:3000/v1/talpak/get-pot", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Prize pool data:", data);
+            let prizeAmount = 0;
+            
+            if (data.success && data.data && typeof data.data.talpak_money === 'number') {
+                prizeAmount = data.data.talpak_money;
+            }
+            
+            const prizeLabel = document.querySelector(".prize-section h3");
+            const dollarIcon = document.querySelector(".prize-section .dollar-icon");
+            
+            if (prizeLabel) {
+                prizeLabel.textContent = `Prize`;
+            }
+            
+            if (dollarIcon) {
+                dollarIcon.innerHTML = `<span>$${prizeAmount.toLocaleString()}</span>`;
+            }
+            
+            resolve(prizeAmount);
+        })
+        .catch(error => {
+            console.error('Error fetching prize pool:', error);
+            // Set default values on error
+            const prizeLabel = document.querySelector(".prize-section h3");
+            const dollarIcon = document.querySelector(".prize-section .dollar-icon");
+            
+            if (prizeLabel) {
+                prizeLabel.textContent = "Prize Pool";
+            }
+            
+            if (dollarIcon) {
+                dollarIcon.innerHTML = "<span>$0</span>";
+            }
+            
+            resolve(0);
+        });
+    });
 }
 
 function closePopup(popupModal) {
